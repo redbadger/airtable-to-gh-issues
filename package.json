@@ -42,6 +42,8 @@
   },
   "version": "1.0.0",
   "dependencies": {
-    "csv-parse": "^4.8.5"
+    "@octokit/rest": "^16.43.1",
+    "csv-parse": "^4.8.5",
+    "dotenv": "^8.2.0"
   }
 }
