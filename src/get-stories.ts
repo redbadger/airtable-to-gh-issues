@@ -17,9 +17,37 @@ const parser = csvParse(
   },
 );
 
-const getStories = async () => {
+export interface Story {
+  'Customer Acceptance criteria': string;
+  'Customer Segment?': string;
+  'Dat Out': string;
+  'Data Acceptance Criteria': string;
+  'Date In': string;
+  'Github PR': string;
+  'Governance Acceptance Criteria': string;
+  'KPI, Metrics and Value': string;
+  'Story name': string;
+  'Tech Acceptance Criteria': string;
+  'Testing Acceptance criteria': string;
+  'Ticket ID': string;
+  'User want': string;
+  Attachments: string;
+  Dependency: string;
+  Description: string;
+  Effort: string;
+  Epics: string;
+  Kanban: string;
+  Milestone: string;
+  Owner: string;
+  Reporting: string;
+  SIZE: string;
+  Type: string;
+  Value: string;
+}
+
+const getStories = async (): Promise<Story[]> => {
   const storiesStream = createReadStream(airTableStoriesPath).pipe(parser);
-  const stories: Array<{ [key: string]: string }> = [];
+  const stories: Story[] = [];
 
   return new Promise((resolve, reject) => {
     storiesStream.on('error', error => reject(error));
