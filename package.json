@@ -42,6 +42,8 @@
   },
   "version": "1.0.0",
   "dependencies": {
+    "@octokit/core": "^2.4.0",
+    "@octokit/plugin-retry": "^3.0.1",
     "@octokit/rest": "^16.43.1",
     "csv-parse": "^4.8.5",
     "dotenv": "^8.2.0"

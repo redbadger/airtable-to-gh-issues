@@ -36,7 +36,23 @@ export interface Story {
   Description: string;
   Effort: string;
   Epics: string;
-  Kanban: string;
+  Kanban:
+    | 'Ideas'
+    | 'Backlog'
+    | 'Discovery'
+    | 'Ready for DUXD'
+    | 'DUXD'
+    | 'DUXD Review'
+    | 'Ready for Dev'
+    | 'Dev'
+    | 'Dev Review'
+    | 'Ready for QA'
+    | 'Quality Assurance'
+    | 'Ready for UAT'
+    | 'Ready for Release'
+    | 'Release & Validate'
+    | 'Done this week'
+    | 'Done';
   Milestone: string;
   Owner: string;
   Reporting: string;
