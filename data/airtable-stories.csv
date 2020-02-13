@@ -1,8 +1,20 @@
-Story name,User want,Tech Acceptance Criteria,Customer Acceptance criteria,Data Acceptance Criteria,Testing Acceptance criteria,Epics,Value,Effort,Type,Kanban,Milestone,Customer Segment?,Owner,SIZE,Governance Acceptance Criteria,Description,"KPI, Metrics and Value",Github PR,Attachments,Reporting,Dependency,Date In,Dat Out,Ticket ID
-,,,,,,,,,,Done,,,,,,,,,,,,,,136
-/section/about and /section/about/ are being logged as separate pages in Google Analytics,"As a data analyst, I want to know how many visits a page received without having to combine numbers for different URLs.",,,Visits to `/section/about/` and `/section/about` should be counted against one URL.,,,,,,,,,,,,See https://github.com/MHRA/products/issues/275,,,,,,,,152
+﻿Story name,User want,Tech Acceptance Criteria,Customer Acceptance criteria,Data Acceptance Criteria,Testing Acceptance criteria,Epics,Value,Effort,Type,Kanban,Milestone,Customer Segment?,Owner,SIZE,Governance Acceptance Criteria,Description,"KPI, Metrics and Value",Github PR,Attachments,Reporting,Dependency,Date In,Dat Out,Ticket ID
+DATA - data layer - Page Category,"as a user of analytics, I would like to be able to see page categories","- Google Analytics push occurs on pageload
+- Pushed data includes information about current page type",,"how to set up detailed here
+https://docs.google.com/spreadsheets/d/1yS7qlsTs3ksyFFSF5FHcC7-CwOg-Sllr9GSQ68gSApQ/edit#gid=0
+
+Categories are like:
+
+MHRA Homepage	
+Substance Page (with	substance name)
+Product Page	(with product name)
+Search Result Page (with	keyword typed)
+Drug Index Page (with	letter)
+MHRA About Page	
+MHRA Accessibility	
+MHRA Cookies	",that the we can capture the data layer element in Google Analytics,,9,5,STORY,Dev Review,,,Robin James Kerrison,XS,,,,,,,,,,165
 API Pod - Azure Development account,"As a developer, I want to connect to K8's pods using a public address",1. API available from a public IP address,,,open this address on the browser http://51.11.35.34/api/healthz and you should see an **OK** on screen,"""API Pod
-""",,,STORY,Ready for Release,Skateboard 🛹,,Pedro Martin,,,"At the moment (20/01/2020) we cannot connect to MHRA azure cluster because they have a security policy to disallow public connections.
+""",,,STORY,Ready for Release,Skateboard 🛹,,Pedro Martin,S,,"At the moment (20/01/2020) we cannot connect to MHRA azure cluster because they have a security policy to disallow public connections.
 
 While we are waiting from the business answer,  we are creating a cluster into RB Azure account to keep us moving",,https://github.com/MHRA/products/pull/272,,,,,,7
 API Pod - Create a Kubernetes Pod for the API,,"Kubernetes cluster has an empty pod in it ready to be used for the API server
@@ -20,278 +32,14 @@ API Pod - Rust server for API,,"Rust server created as base for API server
 API Pod - Schema of GraphQL for API,"As a citizen of the UK, I want to programmatically retrieve the same public information I can get from the website so I can handle that information the way I want","website functionality (basic search, drug index) is available via GraphQL endpoint
 end-to-end tests created in line with repo testing principles
 Follows https://github.com/MHRA/products/blob/master/docs/principles/testing.md",,,,"""API Pod
-""",,,STORY,Dev,Skateboard 🛹,,Robin James Kerrison,M,,,,,20200121_142155.jpg (https://dl.airtable.com/.attachments/ef1dfd040d45a0232da451230ab83446/9eb65353/20200121_142155.jpg),,,,,135
-AUTO BATCH PROCESS - Investigate automating the SPC/PILs upload process,"As a Developer i would like to understand how we can integrate with the current process, in order to inform solution design",,,,,Automatic Batch Process,,,STORY,Discovery,Skateboard 🛹,,Tim Lee,XL,,"Currently looks like this will spawn into several tickets:
-* Write the client side Java library for the batch process to use
-* Write the Rest API endpoints that the batch process will call
-* Write the process to retrieve the files from the Sentinel server following the batch update
-* Discover how to enable network connection in dev and in production between the Sentinel server and the API",,,,,,,,68
-AUTO BATCH PROCESS - PARs upload process investigation,As a developer I would like to investigate a range of options for the PARs upload process,,,,,Automatic Batch Process,,,STORY,Done this week,Skateboard 🛹,,Matt Doughty,XL,,"Initial investigation into the approaches we could take. Look into creating a form in SharePoint for the medical writers to fill in that can be recorded somewhere (e.g. populates a sheet with the PAR metadata and uploads the PAR file).
-An API will need to be able to read from this destination so that the  metadata and files can be uploaded to the site.",,,,,,,,69
-AUTO BATCH PROCESS - Set up batch notification,"As a Licencing team member I would like to know when the automated batch upload has completed, so I can see if everything has been updated correctly.
-Include logs.",,,,,Automatic Batch Process,8,4,BLOCKED,Backlog,Skateboard 🛹,,,M,,,,,,,,,,17
-AUTOMATIC BATCH PROCESS - Add necessary data cleaning in importer or as extra script,"As a Developer I need the data going into the importer to be in the right format, so that the importer works how it should.",,,,,Automatic Batch Process,,,BLOCKED,Backlog,Skateboard 🛹,,,S,,,,,,,,,,10
-AUTOMATIC BATCH PROCESS - Make import process run on weekly schedule,"As a user I want to access the most up to date weekly PARS / SPCc and PILs, so that I have the latest info.",,,,,Automatic Batch Process,,,BLOCKED,Backlog,Skateboard 🛹,,,M,,,,,,,,,,11
-Component Style System,As User I want to see  consistency of design through whole product,,,,,,,,NEW,Ideas,,,,,,,,,,,,,,123
-Cookie banner (GDPR),As a user I would like to be informed of the cookies the site is using so I can accept of reject the permitions,"https://app.zeplin.io/project/5dd51ae21205c944f8c1d35b/screen/5ded6b8f6cd3803d753d30e8
-DESIGN SHOWN HERE","Accessibility:
-Passed contrast check: https://webaim.org/resources/contrastchecker/?fcolor=0F1290&bcolor=E7EBF4
-
-2. It follows the GDS cookie banner standards
-UI reference: zpl://components?pid=5dd51ae21205c944f8c1d35b&coids=5de94366368d348bac2da0f7",,"Cookie Banner Appears on first access to the site or when the cookie history has been cleared.
-Clicking on the Accept button removes the banner and will not appear on further access unless  cookie history is cleared.",,,,BUG,Done,Skateboard Lite 🛹,,Steve Lindsay,,,UI reference: zpl://components?pid=5dd51ae21205c944f8c1d35b&coids=5de94366368d348bac2da0f7,,,,,,,,92
-COPY - Spelling and copy tweak updates from the business,"As a business owner I would like to ensure we have the correct spelling of ""licence"" throughout the site, all spelling mistakes have been fixed and the product page copy is tweaked slightly, so that everything is up to date, relevant and readable.",,"1. Any mention of ""license"" throughout the site is changed to ""licence""
-2. Remove the word ""central"" from ""central European licence"" on any search results page (successful search, no results search)",,,,,,TASK,Done,Skateboard Lite 🛹,,,,,,,,,,,,,77
-"DATA - Add HTML classes to describe whether a linked document is PIL, SPC, or PAR.","The GTM triggers which determine whether a link is to a PIL, SPC, or PAR document are fragile and not 100% correct. There should be something in the link which lets GTM determine this easily.","* A link to a PIL document should always have an HTML class to distinguish it.
-* A link to a SPC document should always have an HTML class to distinguish it.
-* A link to a PAR document should always have an HTML class to distinguish it.",,"* The PIL document trigger should make use of the new HTML tag.
-* The SPC document trigger should make use of the new HTML tag.
-* The PAR document trigger should make use of the new HTML tag.",,,,,TASK,Done this week,Skateboard 🛹,,"Craig Anderson,Sandra Coen",,,,,,,,,,,26
-DATA - Dynamic Dashboard,"As a Product Lead I would like to have the site analytics provided to me in a format that I can amend and change, so that I can have access to the data at all times and not just in a weekly report.",,"as a user I want to be able to select the data on the graph: by data, device, page type, site etc...",data need to be categorized accurately,users must be able to easily use the file ,4 - Data Implementation,8,7,STORY,DUXD Review,,,Sandra Coen,,how we share the dashboard should be approved by the client,,,,,,,27/1/2020,,151
-DATA - Implement Hotjar,"As an internal user, I want to be able to view heatmaps, set up user polls and screen recordings of user sessions",,"1. We can set up a heatmap and it generates a heatmap of a page for desktop, mobile and tablet
-2. We can set up a screen recording of a page, and we can view the recording.
-3. We can set up a poll and it triggers according to the correct behaviour rule applied.
-4. We can set up the incoming feedback tool and it records users responses.",,,,9,4,PARKED,Discovery,Skateboard 🛹,N/A,Sandra Coen,0.5 DAYS,"needs data security and management , as well as user access on Hotjar to be understood and validated.
-A process to manage accounts and access need to be approved and validated.","Allows us to capture heatmaps and screen recordings
-Speak to Kyle (do we need Security checking?)
-Log in Service Now to use the tool",,,,,,,,70
-DATA - Implement Testing tool (Optimize?),"As an internal user I would like to start an A/B testing strategy, to be able to find out what our customers prefer through statistical analysis ",,,,,,7,5,,Ideas,,,,,,,,,,,,,,64
-"DATA - Index all pages of the MHRA Product site on Google (not just main pages)
-
-Supported by https://airtable.com/tbl7CISHKkr8Kdeh2/viwlDIU6cp8cbQYhj/recAuhOCPOn15xEbC","As a user I would want to type keyword such as ""ibuprofene MHRA"" and land directly on the product page on the MHRA product site",,,see the increase of google as a source/medium to a ratio similar to the previous website ,"that typing keyword such as ""mhra ibuprofene"" would take us to the MHRA Product Site",4 - Data Implementation,,,TASK,Backlog,Skateboard 🛹,,Sandra Coen,S,the business needs to agree that google search will redirect to the MHRA Product website instead of the gov page,,see the increase of google as a source/medium to a ratio similar to the previous website ,https://github.com/MHRA/products/issues/247,,,,,,21
-DATA - Initial release analysis,Relay back to the business the initial quantitative findings after the release of the two websites,,,@Sandra Coen ,,4 - Data Implementation,,,TASK,Done,Skateboard 🛹,ALL,Sandra Coen,,,,,,,,,,,33
-DATA - Measurement Framework for Skateboard,"As an internal stakeholder I would like to understand how the MIP website is performing and improving with each milestone / feature release, so that I can communicate the progress of the Transformation programme in general",N/A,N/A,"1. We have captured the metrics we want to track against each section of the North Star, to prove the progress / improvement for Skateboard.
-2. We have identified the tracking that currently exists and the tracking that requires further implementation.
-3. We have reviewed this with the team and the wider working group for agreement and to capture any further metrics
-4. This has been sent round to the wider working group",N/A,4 - Data Implementation,7,5,TASK,Done,Skateboard 🛹,N/A,Sandra Coen,10,N/A,A measurement framework for Skateboard milestone - based on the outputs from the North Star session,"This work will be considered successful if the added tracking has created a data and analytic baseline., which will allow to:
-firstly
-- understand customer behavior
-then
-- show added value on web design improvements
-- provide A/B testing data on deign improvements/change
-
-In summary setting up tracking and the metric framework will allow us to have visibility on the impact of the work done by dev, UX and design.",,,,,,,40
-DATA - Set up Adwords for Search,,,,,,,,,NEW,Ideas,,,,,,,,,,,,,,71
-DATA - Set up weekly report and dashboard,as a business user I would like to have an overall dashboard on the website performance and user behaviour,,"easily access to the dashboard to all
-be able to share some graph, data
-have it updated on a weekly basis
-the data must be easy to understand
-","defining the process of the data update
-find the right tool to display the data
-find the right location to share the data",,4 - Data Implementation,7,7,TASK,Done this week,Skateboard 🛹,,Sandra Coen,,making sure data is access only be authorized people in MHRA,,,,,,,,,141
-"DATA - Update GA Implementation - Event tracking, including PDF views 
-
-","As an internal user, I want to be able to track what on what link users click on, so that I can better understand the user and use this analysis to formulate new feature ideas.",N/A,N/A,"1. We can effectively track click events in Google Analytics as a custom event
-2. We don't capture any personal information
-3. Data should exclude Internal User data 
-",1. These events fire correctly and count in GA,4 - Data Implementation,8,5,TASK,Done,Skateboard Lite 🛹,N/A,Sandra Coen,,,"Currently the GA implementation is very basic and we're unsure whether things are tracking correctly, and some quite important events aren't currently tracked at all.
-
-tags to put are here https://docs.google.com/spreadsheets/d/1ZOnDyx67FbbzfQvYwEkXSE26bBvu3xf9l0lirAAg7Zg/edit#gid=0
-","1. By tracking the event click  we can measure behavior and use these insights to fuel future feature ideas.
-As we currently don't track the event click there is not good/better/bad metric to show. But there will be in the future.",https://github.com/MHRA/products/pull/42,,,,,,80
-"DATA - Update GA Implementation - Event tracking, including PDF views  PRODUCTION","As an internal user, I want to be able to track what on what link users click on, so that I can better understand the user and use this analysis to formulate new feature ideas.",N/A,N/A,"1. We can effectively track click events in Google Analytics as a custom event
-2. We don't capture any personal information
-3. Data should exclude Internal User data 
-",1. These events fire correctly and count in GA,4 - Data Implementation,8,5,TASK,Done,Skateboard Lite 🛹,N/A,Sandra Coen,,,"Currently the GA implementation is very basic and we're unsure whether things are tracking correctly, and some quite important events aren't currently tracked at all.
-
-tags to put are here https://docs.google.com/spreadsheets/d/1ZOnDyx67FbbzfQvYwEkXSE26bBvu3xf9l0lirAAg7Zg/edit#gid=0
-","1. By tracking the event click  we can measure behavior and use these insights to fuel future feature ideas.
-As we currently don't track the event click there is not good/better/bad metric to show. But there will be in the future.",https://github.com/MHRA/products/pull/42,,,,,,65
-"DATA - Update GA Implementation - Search terms
-","As an internal user, I want to be able to track what search terms people are searching for, so that I can better understand the user and use this analysis to formulate new feature ideas.",N/A,Should exclude internal searches ,"1. We can effectively track search terms in Google Analytics as a custom event
-2. We don't capture any personal information
-3. Data should exclude internal search data
-","1. These events fire correctly and count in GA
-2. We do not include internal search",4 - Data Implementation,8,5,STORY,Done,Skateboard Lite 🛹,N/A,Sandra Coen,,,"Currently the GA implementation is very basic and we're unsure whether things are tracking correctly, and some quite important events aren't currently tracked at all.","1. By tracking the search terms we can measure behavior and use these insights to fuel future feature ideas.
-As we currently don't track the search term there is not good/better/bad metric to show. But there will be in the future.",,,,,,,79
-DATA - Use GA to track error message and page not loading,As a user we want to be able to understand when web user can't access the website or encounter an error message during their journey on the website,,,"1. Tag should fire when debugged
-2. Data should appear in GA",,4 - Data Implementation,5,,PARKED,Done,Skateboard 🛹,,Sandra Coen,,,This is to allow the developers to be aware of those type of issues on the website,,,,,,,,31
+""",,,STORY,Ready for Release,Skateboard 🛹,,Robin James Kerrison,S,,,,,20200121_142155.jpg (https://dl.airtable.com/.attachments/ef1dfd040d45a0232da451230ab83446/9eb65353/20200121_142155.jpg),,,,,135
 DATA - Web analytics Data Governance,"As the business we need ensure that we manage how web analytics data is managed, accessed and shared",,,"Having a clear visibility on: 
 - how GA is set up at every level
 - how this impact data privacy regulations (ex GDPR)
 - who should have access to data
 - how are those access manage
 - how to store and share data
-- what banner will the user see and accept or refuse on the website",,4 - Data Implementation,10,7,TASK,Ready for DUXD,,,Sandra Coen,,,,,,,,,,,134
-DATA SPIKE - GTM Data Layer,"As an Analyst I would like to explore the capabilities of the Google Data Layer, to understand how we can structure the longer term data strategy moving forward",,,,,,,,TASK,Done this week,Skateboard 🛹,,Sandra Coen,,,,,,,,,,,140
-DESIGN - New design amend ,"As a user, I want to have easy and accessible access to medicine's information so I can get the information I need.",,"'- There are no images with text
-- The regulator logo (MHRA) is at the top left and it links to the index of the product (not to the agency site at GOV.UK as it does now)
-- Font style replicates GDS modular scale using the brand font (Arial)
-- The footer contains links to the cookie and privacy policies, as well as the accessibility Statement
-- Accessibility principles are covered based on GDS Standard: https://red-badger.slite.com/app/channels/OzlEJ",,"Page Conforms to Agreed Design 
-MHRA Logo To LH Corner of screen and Links to Index of the product
-Site Conforms to GDS Accessibility Standards
-1. Yellow Card Link directs to the Yellowcard website
-2. Customer Service Team Links to …..
-3 EMA links to EMA Homepage
-4. Are there images if so hover over image and see if text appears- should appear.",Design,,,BUG,Done,Skateboard Lite 🛹,ALL,Steve Lindsay,,,,,,,,,,,78
-DESIGN - Search results Copy tweaks - V2,As a Product Lead we need to ensure the final copy is applied to the site....so that we can get sign off from the business,,"1. The disclaimer design now matches the design document
-2. The search results copy reads as:
-
-If the product information you are seeking does not appear below, it is possible that the product holds a European licence and its information may be available at the European Medicines Agency website.
-
-Before a medicine can be sold in the UK, a number of licenses are essential. Products with a UK marketing authorisation have a licence number in the format ‘PL 12345/0001’. 
-
-The first 2 characters are always the letters ‘PL’, and this can be found on the packaging of the product.You can identify the product in the list below using the PL number.
-
-The information about a medicine will be updated when new evidence becomes available.  This may mean that there are differences between the information in the pack and the information here.  The most up-to-date information will be available on this site. (This paragraph change came from VRMM....compared to Kyle's word document)
-
-3. The disclaimer text reads as:
-
-I understand that this information is a copy of the Summary of Product Characteristics and patient information leaflet for a medicine, which outline the conditions under which the medicine should be used and information on its known safety.
-
-I understand that this information may be updated several times during the product’s lifecycle, and that there could be differences between the of the information shown here and other information in the public domain.
-
-I understand that the MHRA is unable to offer medical advice and that if a patient has any questions about a medicine they are taking they should contact their doctor or pharmacist. Patients should not stop taking any prescribed medicines without first speaking to a healthcare professional. Suspected adverse reactions to a medicine can be reported to us on a Yellow Card.
-
-I understand that the MHRA has used its best endeavours in publishing this information, but accept that the information may not be the most up to date version for this product.",,"Attached to this ticket:
-1. Agreement from Kyle on the slight differences in wording from the disclaimer that is currently on the site, compared to what has been applied to the new site.
-2. A screen shot of what the search results wording used to say, using the wording from Kyle's document.
-3. Request from VRMM to change the search results wording (paragraph relating to shelf life), compared to Kyle's original wording",,,,,Done,Skateboard Lite 🛹,,Rafa Prada,,,"Designs:
-
-Disclaimer unchecked: https://zpl.io/2ZBKy6L
-Disclaimer checked: https://zpl.io/2Gwlx4Y
-Search results: https://zpl.io/2ZBKy6L",,,"Screen Shot 2019-12-18 at 12.08.22.png (https://dl.airtable.com/.attachments/9bf257ef04941f764c3c374dbe6f273e/b2e5741d/ScreenShot2019-12-18at12.08.22.png),Screen Shot 2019-12-18 at 12.09.24.png (https://dl.airtable.com/.attachments/fbbf0b590324ed825059b474f41dbe99/b5771aff/ScreenShot2019-12-18at12.09.24.png),Screen Shot 2019-12-18 at 12.09.35.png (https://dl.airtable.com/.attachments/109230b843ccddb085e98a41831e06a7/a77c387a/ScreenShot2019-12-18at12.09.35.png),Screen Shot 2019-12-18 at 13.28.07.png (https://dl.airtable.com/.attachments/d5576b712f21bf42a17875da9712e2c1/168da3e4/ScreenShot2019-12-18at13.28.07.png)",,,,,109
-Design System and Component Library,,Storybook...,,,,,,,NEW,Ideas,,,,,,,,,,,,,,131
-DISCLAIMER - Continue button after accepting disclaimer,"As a designer I would like to improve the disclaimer screen by adding a CTA after accepting the disclaimer, so we comply with W3 standards",,"1. The user can accept the disclaimer by clicking on the checkbox
-2. the inactive button becomes active
-3. the button takes you to the results page",,,,,,STORY,Done,Skateboard 🛹,,Rafa Prada,,,"Designs
-
-Inactive: https://zpl.io/2ZBKy6L
-Active: https://zpl.io/2Gwlx4Y",,,,,,,,106
-FOOTER - About page,"As a user, I would still like to view more detailed information about SPCs, PILs, PARS so that I remain fully informed.",,@Kyle Christie @Rafa Prada ,,"- The Information replicates the copy provided 
--  All links on page link to the appropriate pages and and user can return back to the About Page""
-",,,,BUG,Done,Skateboard Lite 🛹,,Steve Lindsay,,,UI reference: zpl://components?pid=5dd51ae21205c944f8c1d35b&coids=5dd5498e0215bd4535bab9cb,,,HP and About wording for new Stellent platform.docx (https://dl.airtable.com/.attachments/c739fc350af036359624aa4757475b6c/0d7098f3/HPandAboutwordingfornewStellentplatform.docx),,,,,100
-FOOTER - Cookie Policy Copy,TASK - Add in cookie policy copy from Kyle. This still needs to be reviewed and confirmed by Sarah in the Data team,,"1. We reference a cookie policy - This needs to be ICO compliant, have the ability to accept all or accept none for Google Analytics cookies",,,,,,STORY,Done,Skateboard Lite 🛹,,Steve Lindsay,,,,,,MHRA Products cookies statement - revised 11_12_19.docx (https://dl.airtable.com/.attachments/8ca99c07b1fed18b82859d881835ceae/a17f2611/MHRAProductscookiesstatement-revised11_12_19.docx),,,,,88
-FOOTER - Design amends,"As a Product Designer, I would like to tidy up the links in the footer and the design, so that it's easier for users to understand and navigate.",,"I can navigate to the cookie policy
-I can navigate to the Privacy policy
-I can access the Accessibility statement
-I can navigate to the About page
-MHRA logo is on the left",,,,,,BUG,Done,Skateboard Lite 🛹,,Steve Lindsay,,,"https://app.zeplin.io/project/5dd51ae21205c944f8c1d35b/screen/5ded6c546c1e40438b7ebffd
-DESIGN",,,Screen Shot 2019-12-10 at 10.04.46.png (https://dl.airtable.com/.attachments/32cfc597223f9c781607f47927ce7c82/7bfbae1b/ScreenShot2019-12-10at10.04.46.png),,,,,87
-FOOTER - Necessary updates to Cookie Policy copy,As a member of the Data Governance team I want to ensure that the cookie policy is completely compliant with ICO standards,,"1. The copy matches what was provided -  https://zpl.io/VkzGnQg
-2. The ""how to manage"" hyperlink links off to: https://ico.org.uk/your-data-matters/online/cookies/
-3. The ""overview of privacy and safeguarding data"" hyperlink links off to: https://support.google.com/analytics/answer/6004245",,,,,,STORY,Done,Skateboard Lite 🛹,,"Kyle Christie,Rafa Prada",,,,,,MHRA Products cookies statement - revised 12_12_19 - KC edits 2.docx (https://dl.airtable.com/.attachments/b06cfd06733d56218841ea56a2c222a0/46c2fc47/MHRAProductscookiesstatement-revised12_12_19-KCedits2.docx),,,,,104
-GLOBAL - design review,,,,,,,,,,Ideas,,,,,,"1. The typefaces are as described on the designs.
-2.the body copy uses 8 columns of the grid (not full width) and goes to 12 when tablet and mobile to achieve readable optimal length (https://baymard.com/blog/line-length-readability
-3. The search results boxes are as per design when metadata allows.",,,,,,,,42
-GOVERNANCE - Map service intro,GEORGE - To fill in,,,,,,,,TASK,Done,,,Georgina Lubbe,,,,,,,,,,,35
-GraphQL API,,,,,,,,,NEW,Ideas,,,,,,,,,,,,,,125
-HELP & COMMS - Contacting customer service,As a user I want to be able to contact customer service through my preferred social / communication route and at any time of day,,,,,8 - Help & Communication,,,STORY,Ideas,Bicycle 🚲,ALL,,,,"At the moment, there is only the option of contacting customer service via email.....and only at certain times of day",,,,,,,,76
-HOMEPAGE - Copy and Design tweaks ,As I user I want to understand what this service is offering in an accessible and accurate way so I can understand if this service will cover my needs.,"DESIGN AND COPY
-
-https://zpl.io/b6oBk7P
-
-1. The search box removes mention of SPC and PILs
-2. The new homepage copy has been applied as per the designs - We also need to add in ""We publish the most up-to-date information for a medicine according to its licence history"" as the third sentence in the SPC-PILs wording section
-3. SPAR link links to: https://www.gov.uk/guidance/safety-public-assessment-reports 
-4. We link off to the About page in the copy","Accessibility AC:
-
-- Use plain English
-- Keep sentences short
-- Not use words and phrases that people won’t recognise - or provide an explanation if you can’t avoid it
-- Explain all abbreviations and acronyms, unless they are well known and in common use - for example UK, EU, VAT
-
-More details about a11y principles at: https://www.w3.org/TR/WCAG21/#operable
-
-
-",,,Design,,,STORY,Done,Skateboard Lite 🛹,,"Rafa Prada,Kyle Christie,Robin James Kerrison",,,,,,HP and About wording for new Stellent platform.docx (https://dl.airtable.com/.attachments/7fd6657f47196d8a9ddc45bb33f8a363/770daf64/HPandAboutwordingfornewStellentplatform.docx),,,,,105
-HOMEPAGE - Latest updates,As a user when I get to the Medicine Information Portal homepage I want to see the latest updates that have been made to medicine information etc so that I am always fully informed and it's easy to access this information,,,,,9 - Homepage,,,STORY,Ideas,Scooter 🛴,Industry,,,,"Users, especially from the industry, spend a laboured amount of time searching around whether there has been an update to a particular drug....where they need to update their PIL in accordance with that. This feature is to help alleviate the pain of that!",SANDRA,,,,,,,47
-HOMEPAGE - Quick links,,,,,,,,,,Ideas,,,,,,,,,,,,,,56
-Industry Blueprint Prep,TASK for Sinem,,,,,,,,TASK,Done,,,,,,,,,,,,,,120
-INTERNAL - PARS upload process (Manual),"As an internal user I would like to know how and where to upload PARs, so that we can effectively get them published on the site",,"1. Licencing and medical writers have access to documentation on the interim process
-2. A training session has been held on what the process is and how to action it",N/A,N/A,,9,3,STORY,Done,Skateboard Lite 🛹,Internal,Sinem Erdemli,,N/A,,N/A,,,,,,,36
-KEYWORDS - PL number display on the search box,,,,,,,,,STORY,Ideas,,,,,,"With the PL number extracted, we can make sure that we create filters that will support manufacturer onto it",,,,,,,,43
-LEARNING MODULES - Accessibility statement,"As a user I would like to read about the accessibility standards for the website, so that I can understand whether my needs are catered for.",,"1. There is a link to the Accessibiliyt statement in the footer
-2. The page uses the same layout as the other policy pages
-3. The copy matches what was provided by Kyle",,,,,,STORY,Done,Skateboard Lite 🛹,,,,,,,,,,,,,108
-LEARNING MODULES - CI/CD Pipeline,As a Tech Lead I would like to set up the CI/CD pipeline for the Learning Module site (cpd.mhra.gov.uk),Site is built and deployed to azure blob storage. ,,,,,,,TASK,Done,Skateboard Lite 🛹,,"Craig Anderson,Chris Caller",,,,,,,,,,,128
-LEARNING MODULES - Content Upload Process (Interim) ,"As a VRMM stakeholder I would like a defined process / capability of updating content on the CPD website, so that we can modernise and refresh the content",,,,,,,,STORY,Backlog,Scooter 🛴,,,,,,,,,,,,,137
-LEARNING MODULES - Cookie & Privacy Policy,"As a user I would like to access the cookie and privacy policy on site, so I know how my data is stored / tracked",,"Cookie Policy
-1. There's a link to the cookie policy in the footer
-2. The cookie policy links off to it's own page
-3. The copy matches what was provided -  https://zpl.io/VkzGnQg
-4. The ""how to manage"" hyperlink links off to: https://ico.org.uk/your-data-matters/online/cookies/
-5. The ""overview of privacy and safeguarding data"" hyperlink links off to: https://support.google.com/analytics/answer/6004245
-
-Privacy policy
-1. There is a link for the privacy policy in the footer
-2. This links off to https://www.gov.uk/government/publications/mhra-privacy-notice/mhra-privacy-notice",,"Cookie Policy
-1. The link to the cookie policy in the footer takes user to  the cookie policy page
-3. The copy matches what was provided -  https://zpl.io/VkzGnQg
-4. The ""how to manage"" hyperlink links off to: https://ico.org.uk/your-data-matters/online/cookies/
-5. The ""overview of privacy and safeguarding data"" hyperlink links off to: https://support.google.com/analytics/answer/6004245",,,,STORY,Done,Skateboard Lite 🛹,,Craig Anderson,,Latest designs: https://zpl.io/VkzGnQg,,,,,,,,,117
-LEARNING MODULES - Cookie Banner,As a user I would like to be informed of the cookies the site is using so I can accept of reject the permissions,,"Accessibility:
-Passed contrast check: https://webaim.org/resources/contrastchecker/?fcolor=0F1290&bcolor=E7EBF4
-
-2. It follows the GDS cookie banner standards
-UI reference: zpl://components?pid=5dd51ae21205c944f8c1d35b&coids=5de94366368d348bac2da0f7
-
-3. The copy matches the latest design: https://zpl.io/b6oBlzm",,,,,,STORY,Done,Skateboard Lite 🛹,,Aine McKay,,,,,,,,,,,111
-LEARNING MODULES - COPY,As a Product Lead I want to ensure the copy matches accessibility standards and matches what is on the current site today.,,"Accessibility AC:
-
-- Use plain English
-- Keep sentences short
-- Not use words and phrases that people won’t recognise - or provide an explanation if you can’t avoid it
-- Explain all abbreviations and acronyms, unless they are well known and in common use - for example UK, EU, VAT
-
-More details about a11y principles at: https://www.w3.org/TR/WCAG21/#operable
-
-1. The copy matches accessibility standards
-2. The copy is easy to read
-3. We are presenting the last update date as per the attached documents
-4. The intro page matches provided copy (title and description)
-5. general changes from 191211_small_changes.docx are in place",,,,,,STORY,Done,Skateboard Lite 🛹,,Craig Anderson,,,,,,"191112_learningModulesLastUpdate.docx (https://dl.airtable.com/.attachments/fc3f660f3c46ec2664a3e90bb4f0cd3d/e227fd21/191112_learningModulesLastUpdate.docx),191211_titleAndDescription.docx (https://dl.airtable.com/.attachments/493c959509ae3ab33765e7d08ad40192/2ed9b071/191211_titleAndDescription.docx),191211_small_changes.docx (https://dl.airtable.com/.attachments/a8d2b5db1accb6d2265acc19a8d48705/491e1fa8/191211_small_changes.docx)",,,,,82
-LEARNING MODULES - Design,"As a Product Designer I want to ensure the design matches the MHRA branding, accessibility standards and is easy for a user to navigate and read.",,"1. The design matches the MHRA branding from the product website
-2. It matches accessibility standards
-@Rafa Prada 
-",,,,,,STORY,Done,Skateboard Lite 🛹,,,,,,,,,,,,,83
-LEARNING MODULES - URL structure ,"As a Product Lead I'd like to find a URL for our learning modules, that is easy for our users to understand so that people can still find them",,1. Learning modules are set up on cpd.mhra.gov.uk,,,Learning Modules,,,STORY,Done,Skateboard Lite 🛹,,Kyle Christie,,,,,,,,,,,130
-Learning Modules GA & GTM  Implementation,As a business I want to track activity on the learning module,,,"- we are tracking when a user starts a learning module
-- we are tracking when a user navigates into the learning module table of contents","Events are captured when users start to use a Learning Module
-Events are captured when the user clicks on a learning module table of contents",,7,2,,Done,Skateboard Lite 🛹,,Chris Caller,,,"tags
-https://docs.google.com/spreadsheets/d/1ZOnDyx67FbbzfQvYwEkXSE26bBvu3xf9l0lirAAg7Zg/edit#gid=0
-",,,,,,,,84
-Microdata,Using Drug microdata schema (http://schema.org/Drug) to make content accessible to assistance technologies and search engines ,,,,,,,,NEW,Ideas,,,,,,,,,,,,,,75
-MISC - Archive the old site,"As an internal user I would like to archive the old site with the National Archives, so that the public always have access to older versions of the website",1. Andy Snow has approved and signed off on the ,"Acceptance Criteria - 2 weeks to set up (Andy Snow has been through it before)  
-Capture site for National Archives
-
-Does Andy does this anyway as part of testing?
-
-Speak to National Archives about analytics setup - Do we decommission the SPC URL and set up a new one?",,,1 - Tech Infrastructure,,,TASK,Ideas,Skateboard Lite 🛹,N/A,,?,,"Every govt website is captured by national archives
-uk government web archives - sites are captured
-It is possible to review a snapshot of the website
-Guidance for website managers does exist
-
-If we are breaking links there could be an issue
-
-if links are dynaically linked they may go to latest version, so will need to ensure links to direct to historical sites depending on snapshot
-
-Cadence of scans are are random, some times 3 times a month, sometimes twice in 6 months
-
- nationalarchives.gov.uk",N/A,,,,,,,53
-Mobile optimisation,"As a designer, I would like to make sure that the most relevant information for the service is presented first so that users can focus on the main task that the service provides",,,,,,,,STORY,Ideas,,,,,,"The search box, A-Z and Yellow card banner takes a lot of space on the mobile experience and we would like to optimise this.",,,,,,,,46
-Move MHRA to Azure ,,,,,,,,,TASK,Done,Skateboard Lite 🛹,,,,,,,,,,,,,37
-NAVIGATION - Accessibility statements ,"As a user I would like to read about the accessibility standards for the website, so that I can understand whether my needs are catered for.",,"1. We have a way for users to read about what accessibility standards the site meets
-2. The copy matches what was provided by Kyle",,,5 - Search & Navigation,8,7,STORY,Done,Skateboard Lite 🛹,,Steve Lindsay,,,,,,Stellent replacement accessibility statement.docx (https://dl.airtable.com/.attachments/de91d4f0b70a60b13cd96a214e5db46d/8a3dd367/Stellentreplacementaccessibilitystatement.docx),,,,,81
-NAVIGATION - Footer policies ,"As a user I would like to be able to read about the cookie and privacy policies, so I feel better informed ",,"1. We have a cookie policy link and page (copy in another ticket) - 
-2. We reference a privacy policy - Links to MHRA privacy policy: https://www.gov.uk/government/publications/mhra-privacy-notice/mhra-privacy-notice
-","Having a popup banner that the user need to accept linking with privacy policy, GDPR, internal search keyword tracking, Google Analytics, 
-
-detail of some exploration of data privacy here (just notes for now, needs tidy up)
-https://docs.google.com/spreadsheets/d/1ZOnDyx67FbbzfQvYwEkXSE26bBvu3xf9l0lirAAg7Zg/edit#gid=1186842840","1. Cookie Policy Footer Link directs to a cookie policy 
-2. Private Policy Footer Link directs to  a privacy policy",5 - Search & Navigation,7,3,BUG,Done,Skateboard Lite 🛹,ALL,Kyle Christie,,N/A,,N/A,,,,,,,86
-NAVIGATION - Product accessibility statement updates (after testing),"As a Product Lead I would like to update the Product Accessility Statement after testing is complete, so that it has the outcomes of testing in it",,"1. The Accessibility statement is updated with the outcomes from testing
-2. The copy matches what Kyle provides",,,,,,TASK,Done,Skateboard Lite 🛹,,,,,,,,,,,,,107
-NAVIGATION - URL redirects SPCs/PARs/SPARs/PILs/LM,"As a user I want to be taken to the right URL to find SPC's, PARs, SARs and PILs Learning Modules, so that I don't get lost!",,"1. PARs - http://www.mhra.gov.uk/public-assessment-reports/ redirects to products.mhra.gov.uk
-2. SPARs - http://www.mhra.gov.uk/safety-public-assessment-reports/index.htm redirects to gov.uk @Kyle Christie 
-3.  SPC's - redirects to products.mhra.gov.uk
-4. Learning Modules - redirects to cpd.mhra.gov.uk",,,5 - Search & Navigation,10,7,STORY,Done,Skateboard Lite 🛹,,Kyle Christie,,,,,,,,,,,115
-Next.JS,"
-As a user I want to be able to share an URL so a third party can see results ",Site is deployed using static export from next. ,1. A URL can be shared with a third party for a search run or pdf opened,,"1. Run a search and results returned, copy URL and paste URL and send to a third party.  Third party is able to access link and the search results replicates those viewed by the sender
-2. Run a search and results returned, open PDF related to a result,  copy URL and paste URL and send to a third party.  Third party is able to access link and the pdf viewed replicate that viewed by the sender.",,,,TASK,Done,Skateboard Lite 🛹,,Steve Lindsay,,,Lets move to Next.JS,,,,,,,,93
-NextJS💥,,,,,,,,,NEW,Ideas,,,,,,,,,,,,,,124
-PARS & SPARS - Replatforming,"As a user I would like to see the PARs together with the PILs and SPCs on the product page, so that everything is together",,,,,"1 - Tech Infrastructure,6 - Product Page,15 - PARs and SPARs",,,STORY,Ideas,Scooter 🛴,Industry,,,,,SANDRA,,,,,,,62
+- what banner will the user see and accept or refuse on the website",,Data Implementation,10,7,BLOCKED,DUXD,,,Sandra Coen,,,,,,,,,,,134
 POLICIES - Improved privacy settings for Products,As the business I would like to comply with GDPR legislation by allowing users to manage their cookies.,,"In order to comply with ICO requirements, we would need to have all non-essential cookies disable by default and ask/allow the users to enable them
 
 1. The cookies are disable by default when you land on the website
@@ -309,282 +57,75 @@ Communications Division",,,,4,3,STORY,Quality Assurance,Skateboard 🛹,,Craig A
 Cookies banner: https://zpl.io/2pj8o0N
 Policy page: https://zpl.io/aR0nNme
 
-GOV.UK example: https://www.gov.uk/help/cookies",,,,,,23/1/2020,,22
-Prep for Card Sorting,Sinem - Preparing for User Testing on Thursday,,,,,5 - Search & Navigation,,,TASK,Done,Scooter 🛴,,,,,,,,,,,,,118
-PRODUCT COOKIES - Cookie Banner finalised copy tweak,"As a Product Lead I want to ensure that we use the latest signed off copy for the cookie banner, so that we are compliant with ICO standards and users are informed about what we track.",,1. The copy matches the latest design: https://zpl.io/b6oBlzm,,,,,,STORY,Done,Skateboard Lite 🛹,,Aine McKay,,,,,,,,,,,110
-PRODUCT PAGE - Personalised for Patient and Industry segments,"As a patient I don't really understand what SPCs and PARs are for, so I would just like to see the information that is relevant for me. Similarly as someone from the Industry or as a Healthcare professional I would prefer to see a deeper level of information on the product page",,,,,"6 - Product Page,Personalisation",,,,Ideas,,Patient and Industry / Healthcare Professional,,,,,,,,,,,,63
-PRODUCT PAGE - Subscribe,"As a user I want to be able to subscribe to updates on medicine for a drug I produce, so I can stay up to date and have easy access to knowing I need to make changes",,,,,"7 - Updates & Notifications,6 - Product Page",,,STORY,Ideas,Scooter 🛴,Industry,,,,People from the Industry spend a laboured amount of time searching for updates to PARs / drug interactions. This is to help alleviate that friction point,SANDRA,,,,,,,49
-PRODUCT SPIKE - RAMXL Features,"As a Product Manager I would like to understand the full feature set and capabilities of the RAMXL product and it's user base, so that we can try and avoid cannibalisation of a paid service with the new products website",,,,,,,,SPIKE,Backlog,Skateboard 🛹,,,,,,,,,,,,,25
-Run book - LLD ,How azure configured,Terraform exists in our repository that can be “applied” to create/update our infrastructure. ,,,,,,,TASK,Done,Skateboard Lite 🛹,,Chris Caller,,,,,,,,,,,116
-SEARCH - active substances text too long,As a designer I would like to make sure that on the active substance keyword of the search box is clearly displayed the search terms (when applies) so users can't drill down into that active substance filter,,,,,,,,STORY,Ideas,,,,,,Active substances are very long pieces of text and we'd like to have a way to display the most relevant information without compromising the data so we can then create filters,,,,,,,,44
-SEARCH - Advanced Search,,,,,,,,,,Ideas,,,,,,,,,,,,,,57
-SEARCH - Boosting results based on date of documents,As a user I want to be able to search and see the latest amended documents for a particular product at the top of the results.,,,,,5 - Search & Navigation,,,STORY,Backlog,Scooter 🛴,,,,,,,,,,,,,72
-SEARCH - Exclude unrelease doc from Search,"As a member of the Licencing team, I do not want to give access to unreleased documents on site, as these are still in a confidential state from the public.","For any document if release_state isn't 'Y', it shouldn't be uploaded",,,,1 - Tech Infrastructure,,,STORY,Done,Skateboard Lite 🛹,,Matt Doughty,,,,,,,,,,,113
+GOV.UK example: https://www.gov.uk/help/cookies
+
+## Update from call with Sarah (11th February)
+
+We need to:
+
+* Change the second sentence in the cookie banner to something along the lines of “We would like to use cookies to help us improve our services.”
+* Add a section and a separate on/off switch for optional, first-party cookies to the cookie policy page.
+* Edit the Google Analytics section in the cookie policy to make it obvious that they’re third party cookies.
+* Update the “Time” column header in the table.
+* Update “Used to throttle request rate"" text to be more easily understandable.
+
+## Update 13th February
+
+Can move forward with this card without the extra features mentioned above. They'll go into a separate card.",,,,,,23/1/2020,,22
 SEARCH - Basic Filters (spc/pil/par),"As a user I want to be able to filter my search results on the search page, so that I can find what I'm looking for quicker and easier",,"1. I'm able to use a filter on the search results page and the category I've chosen gives me results I'm expecting
 2. I am able to easily find and know how to use filters on the search results page",1. Filter events are tracked by category and label and we can cross reference that with what page a user was on when they filtered,"1. Filtering works per the category a user has chosen to apply
-2. Usage of a filter fires in GA under a custom event",5 - Search & Navigation,8,,STORY,DUXD,Skateboard 🛹,ALL,Sinem Erdemli,M,,"We would like users of the website to have a filter option on the Search Results page, so they can filter by perhaps: Brand name, active substance, drug name, PARS etc (as an example)
+2. Usage of a filter fires in GA under a custom event",Search & Navigation,8,,STORY,Ready for QA,Skateboard 🛹,ALL,Robin James Kerrison,M,,"We would like users of the website to have a filter option on the Search Results page, so they can filter by perhaps: Brand name, active substance, drug name, PARS etc (as an example)
 
 After User testing we've identified that users are overwhelmed with the number of search results. In order to support the search, the addition of filters will contribute to it.
 
 User testing supporting material: https://drive.google.com/drive/u/0/folders/1XFjqqytNAfH8UpELcn_fTFlVHLmr1u2B 
 
 Initial designs: https://zpl.io/a3D4Dnl",@Sandra Coen ,,,,,,,20
-SEARCH - Keyword Boosting ,"As a user I want to see the most relevant results for my search term(s) at the top, so I can find what I'm looking for easier",,"1. The top search results relate directly to the search terms
-@Matt Doughty 
-2. All results with the term in the title should appear at the top of the results list
-
-",,"1. Search for a term i.e. ""Paracetamol"", ""aspirin"" or a combination of terms.
-Expected Result: 
-1.Top Search Results contain the match of searched Term(s) in the title
-2. Searched Term(s) that appear in the body text of the document appear lower in the results list
-3. Partial matches of the searched Term(s) appear lower in the results list
-",5 - Search & Navigation,,,STORY,Done,Skateboard Lite 🛹,ALL,Steve Lindsay,,,,SANDRA,https://github.com/redbadger/mhra-mip/pull/20,,,,,,95
-SEARCH - Mega Nav,As a user I would like to navigate to different sections of the site no matter where I am through the use of a well structured Mega Nav,,1. A user is able to navigate to other areas of the site through a mega nav and this is available site-wide,1. We have captured when someone interacts with the Mega Nav and by each individual link in GA,,5 - Search & Navigation,,,STORY,Ideas,Bicycle 🚲,ALL,,,,,SANDRA,,,,,,,48
-SEARCH - Navigation,"As a user I want to be able to navigate from the search page to the product page either to deeper sections because I know what I'm looking for, or to have it presented in a clear logical way that I know where to go next",,,,,5 - Search & Navigation,,,STORY,Ideas,Scooter 🛴,ALL,,,,,SANDRA,,,,,,,60
-SEARCH - No search results ,"As a user, when there are no results related to my search I would like the option to navigate elsewhere in the site, so that I don't hit a dead end.",,1. A user is able to navigate elsewhere in the site from the No Results search page,"1. We capture this as a ""No Result"" search type in GA
-2. The search term(s) are captured in GA","'@Steve Lindsay 
-1. Enter an search term that returns no result (e.g zzzz) . 
-2. No search results page displayed with link to EMA Website 
-3. ""There are no  search results for …."" corresponds to the term searched 
-4. Click on the EMA link and user directed to the EMA Homepage
-5. The Term searched does not appear in database
-
-Sandra Coen adds:
-1. We capture this as a ""No Result"" search type in GA",5 - Search & Navigation,,,STORY,Done,Skateboard 🛹,ALL,Steve Lindsay,,,"We don't want users to hit dead ends on the site. The idea with this story is to give them options on where to go next, so that they don't leave the site feeling frustrated.",SANDRA,,,,,,,97
-SEARCH - Perform a misspelled search ,"As a user, even if I misspell what I'm searching for, I would still like to see suggested results so that I don't have to keep re-searching ",,"1. The user enters a misspelled word(s) in the search box and still sees results that are likely to be relevant to the search.
-
-",1. We track the search terms in GA and this fires off a custom event,"1. Enter a misspelt term and search returns relevant options. - Such as ""asprin"", ""parasetemol""
-Search Results returned for aspirin, paracetamol etc",5 - Search & Navigation,7,3,STORY,Done,Skateboard Lite 🛹,ALL,Steve Lindsay,,,"A fuzzy search is a process that locates Web pages that are likely to be relevant to a search argument even when the argument does not exactly correspond to the desired information.
-",SANDRA,,,,,,,98
-SEARCH - Perform a search ,"As a user I want to enter search terms in the search box that make sense to me, and to receive related results.",,"1. The user can enter search terms and be shown the search results page
-2. The search results are related to the search terms
-3. Search box should take a minimum of 250 Characters (check limit of Search Field)
-4. PL numbers should be searchable
-5. PDF associated with a search result is viewable
-6. PDF associated with a search result can be downloaded and saved to a device the opened and viewable from the saved file
-7. Return the the Search results after opening a search result
-8. Return the the previous Search after running a new search",1. We track the search terms in GA and this fires off a custom event,"1. Enter a term and search returns the results that include that term 
- 2. Search returns related results
-3. """"Showing results for…."""" returns value that corresponds to the total  items returned in the search
-4. Enter 2 values with a space between """" paracetamol aspirin"""" returns items with both terms first then entries including with either one of the terms
-5.  Search a PL numbers  and results have the  relevant PL number in the title
-6.  View a PDF associated with a search result
-7. Download  and save a PDF associated with a search result on a device.
-8. Open the save PDF  file and the content  can be viewed and navigated
-9. Run a search, select a returned result and view pdf. Use Browser Back button to return to the searched results page
-10. Run a search and results are returned. Run a search on a different term then use Browser Back button to return to the previous searched results page.
-
-",5 - Search & Navigation,7,4,STORY,Done,Skateboard Lite 🛹,ALL,Steve Lindsay,,,With the addition of Azure search we can effectively create the first iteration of a new search function,SANDRA,,,,,,,99
-SEARCH - Re-render search results bug ,N/A,,,,"@Pedro Martin
-
-- [ ] Search result should render after a second query",1 - Tech Infrastructure,,,BUG,Done,Skateboard Lite 🛹,,Steve Lindsay,,,,,,,,,,,101
-SEARCH - Remove created date,"TASK - Remove the created date on all search results, as per the Business requirement. This is because it could cause confusion with users",,"1. The ""created date"" is removed from all search results",,,,,,TASK,Done,Skateboard Lite 🛹,,Steve Lindsay,,,,,,,,,,,114
-SEARCH - Results divider,"As a user I want to clearly be able to see which results are relevant to my search, so that I don't get confused",,,,,,,,STORY,Backlog,Scooter 🛴,,,,,,,,,,,,,73
-SEARCH - Search Design V1 copy,"As a user I want to easily be able to find the search box on the site, and for the results to be easy to digest so that I can find what I'm looking for quickly and easily",1. The web component matches the UX/UI designs,"1. The search function is visible on every page
-2. The search results page is easy to navigate and clear to read
-",,,5 - Search & Navigation,7,6,STORY,Done,Skateboard 🛹,ALL,,5 DAYS,,With the addition of Azure search we can effectively creating the first iteration of a new search design for the exisiting site - Write the client side web component - with MVP UX? Functionally the same but slightly better UX,SANDRA,,,,,,,119
-SEARCH - Search pagination,"As a user, I want to be able to know how many results are for my query and render it to a page",,"The  Search should return all  results and not be limited to a specific number.
-There should be 10 results per page (but this will be reviewed at a later stage)",,"When a term is searched the ""Showing results for nn…."" returns a value that corresponds to the results returned
-Should return all Search results and not be limited to a specific number
-There are 10 results displayed per page",5 - Search & Navigation,,,STORY,Done,Skateboard Lite 🛹,ALL,Steve Lindsay,,,,,https://github.com/MHRA/products/pull/47,,,,,,94
-SEARCH - Sort By,,,,,,,,,,Ideas,,,,,,,,,,,,,,58
-SEARCH - Suggested search ,"As a user when I type something I expect the search box to suggest to me what I want to be typing, so it makes it easier for me as some drugs are hard to spell!",,"1. When I start typing the search box suggests the correct word I'm searching for.
-2. I can press return before I've finished typing the word and be taken to the search results page",1. We capture the search term in GA and this fires a custom event,,5 - Search & Navigation,,,DEPRIORITISED,Backlog,Scooter 🛴,ALL,Matt Doughty,,,"Some drugs / substances are hard to spell! So why not offer users predictive search based on ML, to make their lives easier :)",SANDRA,,,,,,,54
-SEARCH - Top Search Results,"As a user I would like to see what the top search results are either on the homepage or as part of my search journey, so I can get to what I want quicker and understand what my peers are searching for",,,,,"5 - Search & Navigation,9 - Homepage",,,STORY,Ideas,Bicycle 🚲,ALL,,,,By surfacing the top search results we could help users find things quicker and especially for industry....offer an insight into what their fellow peers are searching for (competition / collaboration),SANDRA,,,,,,,59
-SEARCH / PRODUCT PAGE - Drug status,"As a user I would like to know whether a drug is ""Active"", ""Marketed"", ""Unmarketed"", ""Decommisioned"" etc, so I know whether a drug I'm searching for is worth investigating",,,,,"5 - Search & Navigation,6 - Product Page",,,STORY,Ideas,Bicycle 🚲,Industry / Patient?,,,,Drugs stay on the MHRA website even when they've been decommisioned. Also some aren't even marketed....so let's surface that info so people feel informed and don't waste efforts,SANDRA,,,,,,,61
-SEARCH explanation of acronyms,As a user I would like to understand what type of information a PDF I am about to download so I download the correct one,,,,,,,,STORY,Ideas,,,,,,,,,,,,,,45
-SEARCH RESULTS - Design & copy tweaks ,"As a user I want an introduction to the search results page, so that I know what PILs, SPCs and PARs are","DESIGN
-
-https://zpl.io/blAkq9e
-
-COPY
-
-Before a medicine can be sold in the UK, a number of licenses are essential. Products with a UK marketing authorisation have a licence number in the format ‘PL 12345/0001’. The first 2 characters are always the letters ‘PL’, and this can be found on the packaging of the product.
-
-You can identify the product in the list below using the PL number.
-
-The information about a medicine will be updated when new evidence become available.  This may mean that there are differences between the information in the pack and the information here. The most up-to-date information will be available on this site.  ","1. The old ""product page"" copy is at the top of the page 
-2. This copy is to remain static at the top of every search results page
-",,,6 - Product Page,,,STORY,Done,Skateboard Lite 🛹,ALL,"Kyle Christie,Rafa Prada",,,,,,HP and About wording for new Stellent platform (1).docx (https://dl.airtable.com/.attachments/d0fadd74a4411ea4227b80e4d15cc1f3/bed214dd/HPandAboutwordingfornewStellentplatform1.docx),,,,,103
-SEARCH RESULTS - Disclaimer Copy and Design,"As a user I want to feel informed about the condition / status of the information of a drug provided by MHRA, so that I have the most accurate information","Please go to https://rbmhramip.blob.core.windows.net/policies/index.html
-","1. The disclaimer is at the top of the page, under the description copy
-2. the copy matches what is on the current site
-3. We show it once per visit ",,,,,,STORY,Done,Skateboard Lite 🛹,,Kyle Christie,,,Disclaimer: https://zpl.io/aNnQZ7N,,,HP and About wording for new Stellent platform.docx (https://dl.airtable.com/.attachments/319ad627a6a4ea9cc1f913e8765079f3/71f3b7a6/HPandAboutwordingfornewStellentplatform.docx),,,,,102
-SEARCH RESULTS - Disclaimer FUNCTIONALITY,"As a user I want to feel informed about the condition / status of the information of a drug provided by MHRA on my first visit, so that I have the most accurate information","Please go to https://rbmhramip.blob.core.windows.net/policies/index.html
-
-","1. Show once per visit underneath the ""product page"" copy on the search results page
-2. Include the checkbox 
-3. Hide search results until checkbox has been checked",,,,,,STORY,Done,Skateboard Lite 🛹,,Steve Lindsay,,,,,,HP and About wording for new Stellent platform.docx (https://dl.airtable.com/.attachments/a132a4b6f436996071a1ae20d395675d/d03c8116/HPandAboutwordingfornewStellentplatform.docx),,,,,89
-SEO - Alphabetized active substance search ,As a user I want to be able to search for an active substance on a search engine and get links to trusted content.,,"1. A customer can see an alphabetized list on the homepage
-2. A user can click on a letter an see a list of active substances for that letter
-3. A user clicks on this active substance and can see all the products related to this active substance
-4. A user clicks on a product link and is taken to a search results page with the SPC / PIL / PARs for that product at the top of the search results",,"@Steve Lindsay @Stuart Harris - I've noticed a little bug, where by when a user clicks on a letter or an active substance link it jumps back to the top of the homepage. I can't seem to log in to my GitHub account, so thought I'd capture it here for now!",,,,BUG,Done,Skateboard Lite 🛹,,Steve Lindsay,,,,,,,,,,,90
-SEO: Add drug and substance structured data to site,"I want to be able to easily find a drug via a search engine (Google, Bing, etc.). This may be supported by marking up drugs in our HTML.","Microdata should be included as JSON-LD.
+SEO: structured metadata to site,"I want to be able to easily find a drug via a search engine (Google, Bing, etc.). This may be supported by marking up drugs in our HTML.","Microdata should be included as JSON-LD.
 
 Substances are marked up as a Substance  (http://schema.org/Substance)
 
 Drug search results are marked up as drugs (http://schema.org/Drug).
 
-Lists of these things are marked up as lists (https://schema.org/ItemList).",,,Structured data can be viewed using Google's Structured Data Testing Tool https://search.google.com/structured-data/testing-tool/u/0/,,,,PARKED,Quality Assurance,Skateboard 🛹,,"Craig Anderson,Robin James Kerrison",S,,,,,,,,,,5
-SEO: Add medicines and substances to sitemap,"As a user searching for a specific medicine or substance, I want to be able to find the medicine or substance via a search engine (Google, Bing, etc.).
-
-This supports https://airtable.com/tbl7CISHKkr8Kdeh2/viwlDIU6cp8cbQYhj/recizwemfn6kNZB7B",,,"All medicines on the site are listed in https://products.mhra.gov.uk/sitemap.xml
-All substances on the site are listed in https://products.mhra.gov.uk/sitemap.xml",,,,,STORY,Done this week,Skateboard 🛹,,"Craig Anderson,Sandra Coen,Robin James Kerrison",S,,,,,,,,,,28
+Lists of these things are marked up as lists (https://schema.org/ItemList).",,,Structured data can be viewed using Google's Structured Data Testing Tool https://search.google.com/structured-data/testing-tool/u/0/,,,,STORY,Quality Assurance,Skateboard 🛹,,"Craig Anderson,Robin James Kerrison",S,,Duplicated by https://airtable.com/tbl7CISHKkr8Kdeh2/viwlDIU6cp8cbQYhj/recNsBPIZfpkExLYD,,,,,,,,5
 SEO: Improve URLs on site,I want to easily understand what a page is based on its URL. This should help with SEO.,"Substance pages should be at `/substance/MY%20COOL%20SUBSTANCE`.
 
 Drug index pages should be at
 `/index/A` `/index/B` for example
 
+Product pages should at `/product/MY%20COOL%20PRODUCT`, `/product/MY%20COOL%20PRODUCT?page=2`, etc..
+
 Search pages should at `/search/MY%20COOL%20PRODUCT`, `/search/MY%20COOL%20PRODUCT?page=2`, etc..
 
 Old URLs should be redirected to these URLs.","Customers can bookmark pages like `/substance/ibuprofen` and then access the same information when navigating to these directly as when navigating them within site links.
 
-Browser back button works when navigating back from `/substance/whatever` etc.",,,4 - Data Implementation,,,PARKED,DUXD,Skateboard 🛹,,Sandra Coen,,,,,,,,,,,142
-Shareable URL,"As user, I want to  share an URL so that I can show a third party the info I was looking",,,,,,,,NEW,Ideas,,,,,,,,,,,,,,122
-SITEWIDE - Copy amends,As a user I want ,,,,,,,,STORY,Ideas,Skateboard 🛹,,,,,,,,,,,,,121
-TAXONOMY - Navigation Taxonomy,As a user I want to be able to navigate the sitewide menu in a way that is logical to me and easy for me to find.,,,,,16 - Taxonomy,,,STORY,Ideas,Bicycle 🚲,ALL,,,,"Once we look to build in a nevigation menu, to think about how this is ordered and make tweaks on how we can improve this",SANDRA,,,,,,,55
-TECH -  Update the Importer,@Matt Doughty Can you explain what is needed to be done on this task please?,@Matt Doughty ,,,,,,,TASK,Done,Skateboard Lite 🛹,,,,,,,,,,,,,132
-TECH - Alerting,"As a PO I would like the team to be alerted when the site isn't performing, so that we can react quickly to fix any issues.",,1. The business receives alerts in an agreed timescale and format,,,1 - Tech Infrastructure,,,TASK,Backlog,Skateboard 🛹,,,L,,,,,,,,,,15
-TECH - Azure Cluster,As a Tech Principal I would like to create an Azure cluster (AKS) so that we can complete the infrastructure laid out in the HLD,(Speak to Stu) @Pedro Martin - Can we speak about these please?,N/A,N/A,,1 - Tech Infrastructure,,,TASK,Done,Skateboard 🛹,N/A,Pedro Martin,S,,This is setting up the infrastructure using Azure Kubernetes Services,N/A,,,,,,,146
-TECH - CI/CD pipeline,"As an internal user I would like to automate steps in the software delivery process, so that we can remove manual errors and make deploying easier and quicker","1. A pipeline for continuous integration and continuous delivery has been created and tested.
-2. Accessibility checks pick up on all accessibility issues",,,,1 - Tech Infrastructure,,,STORY,Done,Skateboard Lite 🛹,N/A,,2 DAYS,,"A CI/CD pipeline helps automate steps in the software delivery process, such as initiating code builds, running automated tests, and deploying to a staging or production environment. Automated pipelines remove manual errors, provide standardised development feedback loops and enable fast product iterations.",N/A,,,,,,,50
-TECH - Containerize the automatic Importer,"As a Developer I want to ensure the environment in which I run my code is consistent, in order to reduce errors",,,,,"Automatic Batch Process,1 - Tech Infrastructure",,,BLOCKED,Backlog,Skateboard 🛹,,,L,,Having a static IP for the cluster to get whitelisted may be a sticking point. Currently don't have permissions to do this so need to seek approval from Andy S,,,,,,,,8
-TECH - Content Security Policy (Products & Learning Modules),"As a Developer I would like to apply the set up of the Content Security Policy, so that we can ensure the website is secure and guarded ",Implement a Content Security Policy as a <meta> tag  https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP,,,,1 - Tech Infrastructure,,,STORY,Done,Skateboard Lite 🛹,,Craig Anderson,,,,,,,,,,,85
-TECH - Download existing website,Download the existing website - Download as static files,1. The website has been correctly downloaded as static files!,N/A,N/A,,1 - Tech Infrastructure,,,TASK,Done,Skateboard 🛹,N/A,,1 DAY,,As above :),N/A,,,,,,,52
-TECH - End-to-end testing,As a tech lead I want to know that the most important journeys through the site are working.,"Test the most common user journey:
- * enter a search term and click ""search""
- * agree to the disclaimer
- * go to next page of search results
- * click on and download a PDF
-
-Also test the following journey:
- * click a letter on the index
- * click on the name of a substance
- * click on the name of a product
- * if present, agree to the disclaimer
- * click on and download a PDF
-
-Tests should be run as part of CI.
-
-Failed tests should cause CI to fail.
-
-Tests should be reliable and stable.
-
-Tests should mock out Azure responses (if not a difficult thing to do—Wiremock might be useful here)",,,,,7,4,STORY,Done,Skateboard 🛹,,Craig Anderson,M,,,,,,,,,,145
-TECH - Get Data Sample,Get a data sample of SPC / PILs (Around 200 PDFs) - With associated meta data - Ask Andy Snow to do this ,"1. Andy Snow provides us with a data sample of a few hundred PDFs, and the associated meta data.
-2. These are housed somewhere accessible for us to build around and test ",N/A,N/A,N/A,1 - Tech Infrastructure,,,TASK,Done,Skateboard 🛹,N/A,,0.5 DAYS,,Get a data sample of SPC / PILs (Around 200 PDFs) - With associated meta data - Ask Andy Snow to do this ,N/A,,,,,,,51
-TECH - Import full data set SPC/PIL/PARS @Aine McKay ,"As a member of Licensing I would like to ensure we have the full set of PDFs on the new site, so that the new site is up to date and accurate.",,,,"1. The number of files imported match the number we currently have live
-2. No duplicate entries have been made",1 - Tech Infrastructure,9,1,STORY,Done,Skateboard Lite 🛹,N/A,Stuart Harris,1 DAY,,Need to liaise with licensing on when we're actioning things! So we don't clash with their workflow.,N/A,,,,,,,39
-TECH - Make site work in IE ,As a user I want to access the site in IE 11 and above.,,"1. A user can access the website in IE 11 and above.
-2. The website renders correctly.
-3. The user executes a search as in other supported browsers.",,"The website can be viewed and navigated in IE 11, 
-search term(s) are  entered and search initiated.
-Search results returned can be viewed and opened, 
-Associated PDF's opened and viewed/navigated/downloaded
-(Regression Tests)",,,,BUG,Done,Skateboard Lite 🛹,,Steve Lindsay,,,,,,,,,,,129
-TECH - Manual Batch Process 20/01,,,,,,1 - Tech Infrastructure,,,TASK,Done,Skateboard 🛹,,,,,,,,,,,,,147
-TECH - Manual Batch Process w/s 13/01/20,As a user I would like to see the most up to date files uploaded to the site on a regular basis.,"Site works as expected (as it currently does). 
-Search function works, paging works, PDF's can be downloaded.",,New batch files are searchable and downloadable.,,,,,STORY,Done,Skateboard 🛹,,Matt Doughty,,,,,,,,,,,30
-TECH - Observability of Platform performance,"As a PO I'd like to monitor and log platform performance, so that we can keep track of site health and react quickly when issues occur",1. We can log performance of the site and we can create alerts to notify of performance dips / failures,,N/A,,1 - Tech Infrastructure,9,8,TASK,Backlog,Skateboard Lite 🛹,N/A,,XL,,"MLAs help inform us that the website is performing at its best and that when there are dips in performance or the site goes down (for example), that the business is effectively alerted of when this happens.",n/a,,,,,,,14
-TECH - Move Google Analytics script from the body to the head for products site,"As a website admin
-I want to be able to validate ownership of the products site 
-So that I can manage it through the google console portal",Script appears in the head instead of the body of the site - can view by inspecting the HTML markup in browser,,,,,8,1,TASK,Done this week,,,Tim Lee,,,,,,,,,,,29
-TECH - Production pipeline to deploy site,"As a Developer we'd like to be able to deploy through a pipeline to production, to allow reliable, repeated deployments",,,,,1 - Tech Infrastructure,,,STORY,Backlog,Skateboard 🛹,,,L,,,,,,,,,,18
-TECH - Put CDN in front of blob storage,As a user I would like to know that I can bookmark a document and come back to it.,,,,,1 - Tech Infrastructure,,,PARKED,Backlog,,,,M,,,,,,,,,,143
-TECH - Responsive layout of current site ,"A a user I want to be able to read and use the site, no matter what screen size or device I am using","1. The site is able to be read and adapts to any size screen
-","1. A customer sees a desktop view on desktop
-2. A customer sees the mobile version of the site on a mobile",N/A,Website performs adequately at different screen resolutions/sizes with no text overlap and no obvious design discrepancies,1 - Tech Infrastructure,,,BUG,Done,Skateboard Lite 🛹,N/A,Steve Lindsay,,N/A,,N/A,,,,,,,91
-AUTOMATIC BATCH PROCESS - Rewrite importer for incremental update,"As a user
-I want to be able to access up-to-date SPC/PIL/PAR files
-At an IP that doesn't change","As a developer
-I can provide only the updates files/metadata to the importer
-After which the index will be up-to-date
-",,,,Automatic Batch Process,,,BLOCKED,Backlog,Skateboard 🛹,,,L,,"The importer currently expects ALL of the SPC, PIL and PAR files and data and creates a new dir in the storage container. It then re-indexes this new dir and requires a deploy of the site to point to the new index.
-We should introduce a new property in the index and on the files: ""is_deleted"".
-The data source for the indexer should be configured to treat a value of ""true"" in this column as an indication that a blob is deleted.
-The importer should set ""is_deleted"" to true on any files that should be removed from the blob.
-At a later stage we can introduce some functionality to clean up soft-deleted files once the indexer has passed over them at least once and remove them from the blob.
-",,,,,,,,9
-TECH - Set up a manual batch update ,"As a user I would like to see the most up to date content on the site on a regular basis, so that I can trust the information and use the website as my main source of truth.
-","2. New material is uploaded correctly to the site
-3. Amendments are uploaded and applied to the site
-4. Content is removed from the site (e.g. a drug whose licence was cancelled a year ago)",,N/A,,1 - Tech Infrastructure,8,2,TASK,Done,Skateboard Lite 🛹,N/A,,5 DAYS,,Set up the scheduled batch update for Sentinel (when and how to do this?)  - Where does this data lives (Azure / Prem) - There’s nothing to write but they have to make the connections,N/A,,,,,,,66
-TECH - Set up DNS ,"As a business owner I would like to rename the URL, so that it makes more sense to our users and sets us up for future branding","1. GDS have set up a new DNS and have given us access (products.mhra.gov.uk)
-2. The old URL redirects to the new URL",N/A,"1. The structure of the URL tracks in a logical way, that makes sense for content drilldown in GA",,1 - Tech Infrastructure,,,STORY,Done,Skateboard Lite 🛹,N/A,Andy Snow,1 WEEK,,Setting up a new Domain Name System for the new website (as we're calling it something different,n/a,,,,,,,138
-TECH - Set up environment,Set up the environments to enable testing,,,,,,,,TASK,Done,,,,,,,,,,,,,,127
-Tech - Set up Issue template ,As a user of github I want to report an issue using a template. ,"Include:
-- Title of issue 
-- Description of bug 
-- Steps to reproduce 
-- Expected behaviour
-- Screenshots 
-- Additional context",,,,,,,TASK,Done,Skateboard Lite 🛹,,,,,,,,,,,,,139
-TECH - Set up Istio,,Istio pods should be in the k8s cluster,,,,1 - Tech Infrastructure,,,TASK,Ready for Release,Skateboard 🛹,N/A,Pedro Martin,S,,"For Skateboard the PARs will sit on a temporary WordPress site, until we can look to integrate them as part of the normal journey. Therefore we need to set up the routing system between the two websites.",N/A,,,,,,,27
-TECH - Set up unit testing,"As a Developer I want to be able to unit test my code, so that we can ensure changes haven't broken anything",,,,,1 - Tech Infrastructure,7,6,STORY,Done,Skateboard 🛹,,Robin James Kerrison,XL,,,,,,,,,,144
-TECH - Site Map,@Pedro Martin ," - [ ] sitemap.xml file inside the `./dist` folder would be created on yarn build script
-- [ ] sitemap.xml file should follow this schema
-- [ ] a robots.txt file inside the ./dist folder would be created on yarn build script
-- [ ] robots.txt file should follow this schema",,,,,,,TASK,Done,,,,,,,,,,,,,,112
-TECH - Static Page scaffolding,This is building the tech framework for the static pages in React,"1. A framework has been built in React, to support the static pages",N/A,N/A,N/A,1 - Tech Infrastructure,,,TASK,Done,Skateboard 🛹,N/A,,,N/A,,N/A,,,,,,,96
+Browser back button works when navigating back from `/substance/whatever` etc.","@Sandra Coen please tell Sandra the minute the changes are live so she can make the tracking changes
+",,Data Implementation,,,STORY,Ready for Dev,Skateboard 🛹,,,M,,,,,,,,,,142
+TECH - Set up Istio,,Istio pods should be in the k8s cluster,,,,Tech Infrastructure,,,TASK,Ready for Release,Skateboard 🛹,N/A,Pedro Martin,S,,"For Skateboard the PARs will sit on a temporary WordPress site, until we can look to integrate them as part of the normal journey. Therefore we need to set up the routing system between the two websites.",N/A,,,,,,,27
 TECH - Web pod,"Write the web pod - to host the site, whilst moving to server-side rendering
-Follows https://github.com/MHRA/products/blob/master/docs/principles/testing.md","1. The Web Pod can effectively host HTML, CSS and JS files for client-side rendering",N/A,N/A,,1 - Tech Infrastructure,,,TASK,Ready for Release,Skateboard 🛹,N/A,Robin James Kerrison,L,,"The Web pod would start life just serving static HTML, CSS and JS files for client-side
+Follows https://github.com/MHRA/products/blob/master/docs/principles/testing.md","1. The Web Pod can effectively host HTML, CSS and JS files for client-side rendering",N/A,N/A,,Tech Infrastructure,,,TASK,Ready for Release,Skateboard 🛹,N/A,Robin James Kerrison,S,,"The Web pod would start life just serving static HTML, CSS and JS files for client-side
 rendering. Later it can be evolved for server-side rendering to give users a faster time to
 interactivity and better SEO. It could be written in JavaScript on NodeJS and would be trivial
 to build.",N/A,https://github.com/MHRA/products/pull/276,,,,,,67
-TECH - Write the Importer,"Process docs and store them in Blob storage - Includes defining a schema for the metadata and storing the PDFs in Blob storage, indexed by content hash","1. Docs are stored in Blob Storage 
-2. A schema has been defined for the metadata
-3. They're indexed by content hash
-
-",N/A,N/A,,1 - Tech Infrastructure,,,TASK,Done,Skateboard Lite 🛹,N/A,,5 DAYS,,"Process docs and store them in Blob storage and Cosmos - Includes defining a schema for the metadata and storing the PDFs in Blob storage, indexed by content hash",N/A,,,,,,,41
-TECH / DATA SPIKE - SEO implementation iteration,As a Developer / Analyst I would like to understand the effort it takes to properly index the site for optimal Google indexing and discover how we could technically enable users to land directly on search pages without the redirect to gov.uk,,,,,,,,SPIKE,Done,Skateboard 🛹,,Craig Anderson,,,,,,,,,,,34
-TECH SPIKE - Disaster Recovery test,"As a Dev I would like us to perform a Disaster Recovery test, so that the business are confident this works effectively and we can sign this off as part of the business case",,,,,1 - Tech Infrastructure,,,SPIKE,Backlog,Skateboard 🛹,,,L,,,,,,,,,,16
-TECH SPIKE - Filter Tech Effort,"As a PO I would like to understand what the tech effort would be to build in filter functionality to the search results page, so that we can prioritise this feature accordingly",,,,,,,,SPIKE,Done,Skateboard 🛹,,Robin James Kerrison,,,,,,,,,,,32
-TECH SPIKE - Recency of document data,As a PO I would like to know how we can boost search results based on the date data we currently hold within the database,,,,,,,,SPIKE,Backlog,Skateboard 🛹,,,,,,,,,,,,,24
-TESTS - Cypress End-To-End testing for CPD,As a developer I want to be sure that a change I make to the CPD site doesn't break it in some catastrophic way.,"Test the most common and important user journey(s).
-
-The most common is:
-* visit home page;
-* click ""Antipsychotics"";
-* click ""Extrapyramidal side effects: acute dystonia""
-
-Tests should be run as part of CI.
-
-Failed tests should cause CI to fail.
-
-Tests should be reliable and stable.",,,Tests fail when code breaks functionality,1 - Tech Infrastructure,,,STORY,Ready for Release,Skateboard 🛹,,Craig Anderson,,,Follows https://github.com/MHRA/products/blob/master/docs/principles/testing.md,,,,,,,,133
-TESTS - Enzyme tests for the React components of the CPD site,As a Developer I want to make sure that my changes don't break anything in a catastrophic way!,"Enzyme tests run for all React components for cpd.mhra.gov.uk
-Tests are run as part of Continuous Integration
-Follows https://github.com/MHRA/products/blob/master/docs/principles/testing.md",,,Tests fail when code breaks functionality,1 - Tech Infrastructure,,,,Backlog,,,,,,,,,,,,,,148
-TESTS - Enzyme tests for the React components of the Products site,As a Developer I want to make sure that my changes don't break anything in a catastrophic way!,"Enzyme tests run for all React components for products.mhra.gov.uk
-Tests are run as part of Continuous Integration
-Follows https://github.com/MHRA/products/blob/master/docs/principles/testing.md",,,Tests fail when code breaks functionality,1 - Tech Infrastructure,,,,Quality Assurance,,,,,,,,,,,,,,149
-TESTS - Jest test quest,"As a dev, I want helper functions to be tested, so I can sleep at night","Existing logic in /medicines/web/services is retroactively tested by Jest
-Tests run as part of CI
-Tests concur with https://github.com/MHRA/products/blob/master/docs/principles/testing.md",,,Tests break when code changes functionality,1 - Tech Infrastructure,,,TASK,Backlog,,,,,,Jest tests for exisintg helpers,,,,,,,,150
-URL Structure,As a business I would like the URL naming convention to facilitate web analytics,- clear definition of what naming convention to use in each page,,"being able to use URL naming convention to identify page in a clear and succinct manner
-having the GTM modified to match the new naming conventions",having GTM tags firing,,7,4,,Done,Skateboard Lite 🛹,,Sandra Coen,,,"details
-https://docs.google.com/spreadsheets/d/1ZOnDyx67FbbzfQvYwEkXSE26bBvu3xf9l0lirAAg7Zg/edit#gid=1392410623",,,,,,,,38
 WEB POD - Docker Container,"As a dev
 I want medicines/web to be available as a Docker image
 So that I can deploy it anywhere","Dockerfile created
 Docker image available in MHRA environments' container registry
 Website accessible from outside docker container
-",,,,1 - Tech Infrastructure,,,TASK,Ready for Release,Skateboard 🛹,,Robin James Kerrison,,,"It's necessary to create a dockerfile which builds an image which allows the medicines/web site to be accessible. This is a precursor to a Kubernetes step.
+",,,,Tech Infrastructure,,,TASK,Ready for Release,Skateboard 🛹,,Robin James Kerrison,S,,"It's necessary to create a dockerfile which builds an image which allows the medicines/web site to be accessible. This is a precursor to a Kubernetes step.
 See https://github.com/MHRA/products/blob/351032ccd70f8f2b2470bec2c3fc81db5a220fd1/medicines/web/infrastructure/README.md for the open source documentation.",,,,,TECH - Web pod,27/1/2020,,153
-Web Pod - Put into Kubernetes Cluster,"As a dev
-I want a nice bit of kubernetes deployment yaml for medicines/web
-So that I can create and replace kubernetes pods containing the medicines/web quickly, reliably and repeatably",,,,,Web Pod,,,TASK,Backlog,Skateboard 🛹,,,,,See the kubernetes step of https://github.com/MHRA/products/blob/351032ccd70f8f2b2470bec2c3fc81db5a220fd1/medicines/web/infrastructure/README.md,,,,,WEB POD - Docker Container,,,154
-Web Pod - Server-Side Rendering,"As a user,
-I want to receive information on first page load
-So that I do not have to wait for a second network request before seeing useful information","On first page load, i.e. access directly to a URL, content is server-side rendered
-On subsequent page loads, client-side routing is used, to minimise the size of network requests",,,,Web Pod,,,TASK,Backlog,Skateboard 🛹,,,,,This is the last step of the Web Pod guide at https://github.com/MHRA/products/blob/351032ccd70f8f2b2470bec2c3fc81db5a220fd1/medicines/web/infrastructure/README.md,,,,,,,,155
-TECH - Investigate feature flag infrastructure,"As a QA / Dev I would like to understand how we can release behind feature flags, to reduce the risk of releasing bugs to the public and for CI",,,,,"""API Pod
-""",,,TASK,Backlog,,,,,,,,,,,,,,156
-DATA - Benefit Profile Analysis,"As a Business Sponsor I would like to understand if we have seen a reduction in customer contacts relating to availability of the site, so that we can meet the requirements laid out in the business case and close off the project.",,,,,4 - Data Implementation,,,TASK,Backlog,Skateboard 🛹,,,,,,,,,,,,,157
-AUTO BATCH PROCESS - PARs upload form,"As a member of Licencing I would like to upload the PARs to the Products website, in an easy format so that I can ensure the latest versions of the PARs are always available on the site.",,,,,"1 - Tech Infrastructure,15 - PARs and SPARs",,,BLOCKED,Discovery,Skateboard 🛹,,,,,,,,,,,,,158
+AUTO BATCH PROCESS - PARs upload form,"As a Medical Writer I would like to upload and amend PARs to the Products website, in an easy format so that I can ensure the latest versions of the PARs are always available on the site.",,"1. The upload has an unique identifier for future reference
+2. I have the relevant fields to add data that will match existing PILs and SPCs metadata
+3. Each keyword has its own form field
+4. There is a way to associate the PAR to it's relevant SPC
+5. The url of the PDF is friendly and relatable to the PAR
+6. the title of the file is broken into: (TBC with James)
+- product name
+- Dosage
+- Form (tablet, capsule, etc)
+- PL number",,,"Tech Infrastructure,15 - PARs and SPARs",,,BLOCKED,Discovery,Skateboard 🛹,Internal customers,,XL,,,,,,,,,,158
 API Pod - Pipeline,"As a developer, I want to deploy API code into the cluster when my development branch is merged into the master branch",1. When this is merged into master the new code should be deployed effectively,,,,"""API Pod
-""",,,STORY,Dev,Skateboard 🛹,,Pedro Martin,,,,,,,,,,,160
-TECH - Manual Batch Process w/s 27/01/20,As a user I would like to see the most up to date files uploaded to the site on a regular basis.,As a user I would like to see the most up to date files uploaded to the site on a regular basis.,,,,,,,TASK,Done this week,,,Tim Lee,,,,,,,,,,,161
+""",,,STORY,Ready for Release,Skateboard 🛹,,Pedro Martin,S,,,,,,,,,,160
 POLICIES - Improved privacy settings for CPD,As the business I would like to comply with GDPR legislation by allowing users to manage their cookies.,,"In order to comply with ICO requirements, we would need to have all non-essential cookies disable by default and ask/allow the users to enable them
 
 1. The cookies are disable by default when you land on the website
@@ -606,45 +147,32 @@ GOV.UK example: https://www.gov.uk/help/cookies",,,,,,23/1/2020,,162
 DATA - Update site docs to Github,"As a data manager
 I want to see details of how the site uses data
 So that I can ensure that it fulfills the necessary government requirements",,,"1. Readme files / Data match the level of detail required by the business.
-2. Is reflective of the LLD",,4 - Data Implementation,,,TASK,Dev,Skateboard 🛹,,Tim Lee,,,,,,,,,,,163
-AUTOMATED BATCH PROCESS - PoC of API,"As a developer
-I want to prove the concept that an API in Azure can receive messages from a Java v1.6 based client 
-So that I can confirm that the intended design will work
-","An API (ideally written in Rust) that surfaces a public IP, accepts Post requests and returns a success status.",,,,Automatic Batch Process,,,TASK,Backlog,Skateboard 🛹,,,,,,,,,,,,,164
-DATA - data layer - Page Category,"as a user of analytics, I would like to be able to see page categories",,,"how to set up detailed here
-https://docs.google.com/spreadsheets/d/1yS7qlsTs3ksyFFSF5FHcC7-CwOg-Sllr9GSQ68gSApQ/edit#gid=0",that the we can capture the data layer element in Google Analytics,,9,5,NEW,Backlog,,,Sandra Coen,,,,,,,,,,,165
- DATA - data layer - Click Link + Text SPC/PIL/PAR,"as a user of analytics, I would like to be able to see page categories in click link +  the text that was clicked when to view   SPC/PIL/PAR PDF",,,"when there is a click link event, create data layer elements:
--  Click Link URL
-- Clicked Text
-- Pdoc_type (SPC,PIL or PAR)
-- file_name
-- title
-if possible
-- substance_name
-- product_name
-- PL number",that the we can capture the data layer element in Google Analytics,,,,NEW,Backlog,,,Sandra Coen,,,,,,,,,,,166
- DATA - data layer - Click Link + Text  OTHER (than SPC/PIL/PAR),"as a user of analytics, I would like to be able to see page categories in click link +  the text that was clicked when to view pages OTHER than    SPC/PIL/PAR PDF ",,,"when there is a click link event, create data layer elements:
--  Click Link URL
--  Clicked Text",that the we can capture the data layer element in Google Analytics,,,,NEW,Backlog,,,Sandra Coen,,,,,,,,,,,167
-DATA - data layer - Saw the disclaimer,"as a user of analytics, I would like to be able to know when the disclaimer was seen",,,"track as element ""saw the disclaimer""",that the we can capture the data layer element in Google Analytics,,4,9,NEW,Backlog,,,Sandra Coen,,,,,,,,,,,168
-DATA - data layer - Ticked the disclaimer,"as a user of analytics, I would like to be able to know when the disclaimer was ticked",,,"track as element ""ticked the disclaimer""",that the we can capture the data layer element in Google Analytics,,4,7,NEW,Backlog,,,Sandra Coen,,,,,,,,,,,169
-Fix sitemap encoding of urls,"As a user
-I want to be able to find a site at the top of search engine results
-So that I can get to the page I want
-","As a search engine
-I want to be able to access the sitemap
-So that I can index all the pages correctly",,,,,,,BUG,Done this week,,,Craig Anderson,,,,,,,,,,,171
-,,,,,,,,,,Dev,,,,,,,,,,,,,,172
-SEARCH - Fix filtering into substance / drug / files,As a user I want to be able to drill into substances and drugs and see the correct number of files.,,,,,5 - Search & Navigation,,,BUG,Discovery,,,Tim Lee,,,,,,,,,,,173
-SEARCH - Related Word Search,"As a user I would like to see more refined results when I add more words, rather than adding more results","- when we query Azure Search, we send '&searchMode=all' as part of the query string","- fewer results come back for multi-word searches than before
-- clicking through Drug Index still gives me relevant results",,,5 - Search & Navigation,,,STORY,DUXD,,,"Tim Lee,Robin James Kerrison,Rafa Prada",,,,,,,,,,,174
-AUTO BATCH PROCESS - PARs fetching process,,,,,,Automatic Batch Process,,,STORY,Backlog,,,Matt Doughty,,,,,,,,,,,175
-AUTO BATCH PROCESS - PARs Replacement Process,,,,,,Automatic Batch Process,,,STORY,Backlog,,,Matt Doughty,,,,,,,,,,,176
-API Pod - Implement API for Products,,"- Pagination that the website can use
-",,,,"""API Pod
-""",,,,Backlog,Skateboard 🛹,,,,,,,,,,,,,178
-API Pod - Implement API for Substances,,,,,,"""API Pod
-""",,,NEW,Backlog,,,,,,,,,,,,,,179
-INTERNAL - Technical handover process,,,,,,1 - Tech Infrastructure,,,NEW,Backlog,,,,,,,,,,,,,,180
-INTERNAL - Data Handover process,,,,,,4 - Data Implementation,,,NEW,Backlog,,,,,,,,,,,,,,181
-Web Pod - To point the website to the API,,,,,,Web Pod,,,NEW,Backlog,Skateboard 🛹,,,,,,,,,,,,,182
+2. Is reflective of the LLD",,Data Implementation,,,TASK,Dev Review,Skateboard 🛹,,Tim Lee,S,,,,,,,,,,163
+SEARCH - Fix filtering into substance / drug / files,As a user I want to be able to drill into substances and drugs and see the correct number of files.,The number of results that are displayed after clicking on a drug should match the number displayed next to the result when clicking through the <A-Z> -> <Substance> -> <Drug> (X files),,,,Search & Navigation,,,BUG,Dev,,,Tim Lee,M,,,,,,,,,,173
+API Pod - Implement API for Products,,"API takes substance name, search query and document type filters as input.
+
+API produces a list of products, each of which contain documents, as output.
+
+The output of the API should include pagination",API is in a state where it could be used easily by a third party (e.g. NHS developer),,,"""API Pod
+""",,,,Dev,Skateboard 🛹,,Craig Anderson,L,,"Regarding pagination, there's a thing called Relay which seems to be a standard way of doing pagination. We should probably make use of it.",,,,,,6/2/2020,,178
+Sharing Web Analytics dashboard,as an analyst I would like to be able to share insights with whoever need to access them,,access weekly updated web analytics,,,,9,4,TASK,DUXD Review,,,Sandra Coen,,"accessible by all necessary stakeholder
+not accessible by non authorized people",,,,,,,,10/2/2020,191
+AUTO BATCH PROCESS - API for Sentinel ,,"'- API should provide endpoint to post XML or JSON to create an upload request
+- API should dispatch a message to an Azure ServiceBus topic which contains the upload request spec
+- API should provide endpoint to post XML or JSON to create a delete request
+- API should dispatch a message to an Azure ServiceBus topic which contains the delete request spec
+- API should provide endpoint to get status of a request (this can be a stub until we have the logging/status component)
+
+Probable blockers:
+- We need access to the ExpressRoute so Sentinel can communicate with us
+- Dilu integration","Sentinel should be able to upload and delete documents with metadata, and get the status of uploads and deletions",,,Automatic Batch Process,,,TASK,Dev,Skateboard 🛹,,,L,,,,,,,,10/2/2020,,193
+Import Airtable CVS to Github ,"As a x-functional team member, I want to be able to access the Kanban board on Github so that I can track the work the team is completing. ",,,,,,10,5,TASK,Dev Review,Skateboard 🛹,,Pedro Martin,S,,,,,,,,12/2/2020,,198
+API Pipeline secrets 🕵️‍♂️,"As security-minded developer person, I want sensitive environment information to be secured so that I don't have any data breaches.",As a developer I want the API POD to consume environment variables from kubernetes secret,,,,,,,BUG,Dev Review,,,Pedro Martin,,,,,,,,,12/2/2020,,199
+"DATA 
+Insights documentation on Github",as an insight person I would like to document share tracking and reporting data and info on Github,"that GA tracking is available open source
+that reporting is only available on MHRA sharepoint",that the client find instructions clear and accessible,N/A,,,8,7,TASK,DUXD Review,,,,,,,,https://github.com/MHRA/products/blob/timlee/update-documentation/docs/insights.md,,,,13/2/2020,,200
+First-Party Cookies in Cookie Policy,"As a privacy-minded user, I want to know what first-party cookies the Products site uses, and to enable or disable them separately from other cookies.",,,,,,,,,,,,,,,"Need to:
+
+* Change the second sentence in the cookie banner to something along the lines of “We would like to use cookies to help us improve our services.”
+* Add a section and a separate on/off switch for optional, first-party cookies to the cookie policy page.
+* Edit the Google Analytics section in the cookie policy to make it obvious that they’re third party cookies.",,,,,,,,201
