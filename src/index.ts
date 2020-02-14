@@ -1,17 +1,22 @@
-import { octokit, project_id } from './utils';
+import { octokit, createIssue, setColumn } from './utils';
+
+import getStories from './get-stories';
 
 const start = async () => {
-  const { data } = await octokit.repos.listCollaborators({
-    owner: 'MHRA',
-    repo: 'products',
-  });
+  const stories = await getStories();
 
-  const colaborators = data.map(collaborator => {
-    const { id, login } = collaborator;
-    return { id, login };
-  });
-
-  console.log({ colaborators });
+  Promise.all(
+    stories.map(async story => {
+      console.log(story);
+      const id = await createIssue(story);
+      const { data } = await octokit.projects.createCard({
+        column_id: setColumn(story),
+        content_id: id,
+        content_type: 'Issue',
+      });
+      console.log({ data });
+    }),
+  );
 };
 
 start();
