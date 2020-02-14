@@ -125,3 +125,103 @@ export const setCollaborator = (story: Story): string | undefined => {
   const { Owner } = story;
   return collaboratorOwnerMatcher[Owner];
 };
+
+export const randomColor = () =>
+  Math.floor(Math.random() * 16777215).toString(16);
+
+export const story: Story = {
+  'Story name': 'DATA - data layer - Page Category',
+  'User want':
+    'as a user of analytics, I would like to be able to see page categories',
+  'Tech Acceptance Criteria':
+    '- Google Analytics push occurs on pageload\n' +
+    '- Pushed data includes information about current page type',
+  'Customer Acceptance criteria': '',
+  'Data Acceptance Criteria':
+    'how to set up detailed here\n' +
+    'https://docs.google.com/spreadsheets/d/1yS7qlsTs3ksyFFSF5FHcC7-CwOg-Sllr9GSQ68gSApQ/edit#gid=0\n' +
+    '\n' +
+    'Categories are like:\n' +
+    '\n' +
+    'MHRA Homepage\t\n' +
+    'Substance Page (with\tsubstance name)\n' +
+    'Product Page\t(with product name)\n' +
+    'Search Result Page (with\tkeyword typed)\n' +
+    'Drug Index Page (with\tletter)\n' +
+    'MHRA About Page\t\n' +
+    'MHRA Accessibility\t\n' +
+    'MHRA Cookies\t',
+  'Testing Acceptance criteria':
+    'that the we can capture the data layer element in Google Analytics',
+  Epics: '',
+  Value: '9',
+  Effort: '5',
+  Type: 'STORY',
+  Kanban: 'Dev Review',
+  Milestone: '',
+  'Customer Segment?': '',
+  Owner: 'Robin James Kerrison',
+  SIZE: 'XS',
+  'Governance Acceptance Criteria': '',
+  Description: '',
+  'KPI, Metrics and Value': '',
+  'Github PR': '',
+  Attachments: '',
+  Reporting: '',
+  Dependency: '',
+  'Date In': '',
+  'Dat Out': '',
+  'Ticket ID': '165',
+};
+
+const setLabels = (story: Story): string => {
+  const { Epics, Type } = story;
+
+  const epics = Epics.length > 0 ? Epics : undefined;
+  const type = Type.length > 0 ? Type : undefined;
+
+  return `${epics ?? ''} ${type ?? ''}`;
+};
+
+export const issueTemplate = (story: Story): string => {
+  return `
+---
+name: ${story['Story name']}
+about: ${story['Customer Acceptance criteria']}
+labels: ${setLabels(story)}
+assignees: ${story.Owner}
+milestone: ${story.Milestone}
+
+---
+
+### User want
+${story['User want']}
+
+**Customer acceptance criteria** 
+${story['Customer Acceptance criteria']}
+
+**Technical acceptance criteria**
+${story['Tech Acceptance Criteria']}
+
+**Data acceptance criteria**
+${story['Data Acceptance Criteria']}
+
+**Testing acceptance criteria** 
+${story['Testing Acceptance criteria']}
+
+**Size**
+${story.SIZE}
+
+**Value**
+${story.Value}
+
+**Effort**
+${story.Effort}
+
+### Exit Criteria met 
+- [ ] Backlog
+- [ ] Discovery
+- [ ] Development 
+- [ ] Quality Assurance 
+- [ ] Release and Validate`;
+};
