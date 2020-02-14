@@ -5,10 +5,12 @@
 ## To do
 
 - [x] Delete current cards
-- [ ] Create GH labels
-  - [ ] Epics
-  - [ ] Types
-- [ ] Create milestones
-- [ ] Map owners to gh usernames
-- [ ] Map airtable columns to projects columns
-- [ ] Template issue
+- [x] Create GH labels
+  - [x] Epics
+  - [x] Types
+- [x] Create milestones
+- [x] Map owners to gh usernames
+- [x] Map airtable columns to projects columns
+- [x] Template issue
+- [x] Create issue
+  - [x] Create card and allocate to column

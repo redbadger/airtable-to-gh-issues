@@ -12,7 +12,7 @@ Search Result Page (with	keyword typed)
 Drug Index Page (with	letter)
 MHRA About Page	
 MHRA Accessibility	
-MHRA Cookies	",that the we can capture the data layer element in Google Analytics,,9,5,STORY,Dev Review,,,Robin James Kerrison,XS,,,,,,,,,,165
+MHRA Cookies	",that the we can capture the data layer element in Google Analytics,,9,5,STORY,Quality Assurance,,,Robin James Kerrison,XS,,,,,,,,,,165
 API Pod - Azure Development account,"As a developer, I want to connect to K8's pods using a public address",1. API available from a public IP address,,,open this address on the browser http://51.11.35.34/api/healthz and you should see an **OK** on screen,"""API Pod
 """,,,STORY,Ready for Release,Skateboard 🛹,,Pedro Martin,S,,"At the moment (20/01/2020) we cannot connect to MHRA azure cluster because they have a security policy to disallow public connections.
 
@@ -74,7 +74,7 @@ We need to:
 Can move forward with this card without the extra features mentioned above. They'll go into a separate card.",,,,,,23/1/2020,,22
 SEARCH - Basic Filters (spc/pil/par),"As a user I want to be able to filter my search results on the search page, so that I can find what I'm looking for quicker and easier",,"1. I'm able to use a filter on the search results page and the category I've chosen gives me results I'm expecting
 2. I am able to easily find and know how to use filters on the search results page",1. Filter events are tracked by category and label and we can cross reference that with what page a user was on when they filtered,"1. Filtering works per the category a user has chosen to apply
-2. Usage of a filter fires in GA under a custom event",Search & Navigation,8,,STORY,Ready for QA,Skateboard 🛹,ALL,Robin James Kerrison,M,,"We would like users of the website to have a filter option on the Search Results page, so they can filter by perhaps: Brand name, active substance, drug name, PARS etc (as an example)
+2. Usage of a filter fires in GA under a custom event",Search & Navigation,8,,STORY,Quality Assurance,Skateboard 🛹,ALL,Robin James Kerrison,M,,"We would like users of the website to have a filter option on the Search Results page, so they can filter by perhaps: Brand name, active substance, drug name, PARS etc (as an example)
 
 After User testing we've identified that users are overwhelmed with the number of search results. In order to support the search, the addition of filters will contribute to it.
 
@@ -87,7 +87,7 @@ Substances are marked up as a Substance  (http://schema.org/Substance)
 
 Drug search results are marked up as drugs (http://schema.org/Drug).
 
-Lists of these things are marked up as lists (https://schema.org/ItemList).",,,Structured data can be viewed using Google's Structured Data Testing Tool https://search.google.com/structured-data/testing-tool/u/0/,,,,STORY,Quality Assurance,Skateboard 🛹,,"Craig Anderson,Robin James Kerrison",S,,Duplicated by https://airtable.com/tbl7CISHKkr8Kdeh2/viwlDIU6cp8cbQYhj/recNsBPIZfpkExLYD,,,,,,,,5
+Lists of these things are marked up as lists (https://schema.org/ItemList).",,,Structured data can be viewed using Google's Structured Data Testing Tool https://search.google.com/structured-data/testing-tool/u/0/,,,,STORY,Ready for UAT,Skateboard 🛹,,"Craig Anderson,Robin James Kerrison",S,,Duplicated by https://airtable.com/tbl7CISHKkr8Kdeh2/viwlDIU6cp8cbQYhj/recNsBPIZfpkExLYD,,,,,,,,5
 SEO: Improve URLs on site,I want to easily understand what a page is based on its URL. This should help with SEO.,"Substance pages should be at `/substance/MY%20COOL%20SUBSTANCE`.
 
 Drug index pages should be at
@@ -123,7 +123,7 @@ AUTO BATCH PROCESS - PARs upload form,"As a Medical Writer I would like to uploa
 - product name
 - Dosage
 - Form (tablet, capsule, etc)
-- PL number",,,"Tech Infrastructure,15 - PARs and SPARs",,,BLOCKED,Discovery,Skateboard 🛹,Internal customers,,XL,,,,,,,,,,158
+- PL number",,,"Tech Infrastructure",,,BLOCKED,Discovery,Skateboard 🛹,Internal customers,,XL,,,,,,,,,,158
 API Pod - Pipeline,"As a developer, I want to deploy API code into the cluster when my development branch is merged into the master branch",1. When this is merged into master the new code should be deployed effectively,,,,"""API Pod
 """,,,STORY,Ready for Release,Skateboard 🛹,,Pedro Martin,S,,,,,,,,,,160
 POLICIES - Improved privacy settings for CPD,As the business I would like to comply with GDPR legislation by allowing users to manage their cookies.,,"In order to comply with ICO requirements, we would need to have all non-essential cookies disable by default and ask/allow the users to enable them
@@ -147,13 +147,11 @@ GOV.UK example: https://www.gov.uk/help/cookies",,,,,,23/1/2020,,162
 DATA - Update site docs to Github,"As a data manager
 I want to see details of how the site uses data
 So that I can ensure that it fulfills the necessary government requirements",,,"1. Readme files / Data match the level of detail required by the business.
-2. Is reflective of the LLD",,Data Implementation,,,TASK,Dev Review,Skateboard 🛹,,Tim Lee,S,,,,,,,,,,163
+2. Is reflective of the LLD",,Data Implementation,,,TASK,Ready for UAT,Skateboard 🛹,,Tim Lee,S,,,,,,,,,,163
 SEARCH - Fix filtering into substance / drug / files,As a user I want to be able to drill into substances and drugs and see the correct number of files.,The number of results that are displayed after clicking on a drug should match the number displayed next to the result when clicking through the <A-Z> -> <Substance> -> <Drug> (X files),,,,Search & Navigation,,,BUG,Dev,,,Tim Lee,M,,,,,,,,,,173
-API Pod - Implement API for Products,,"API takes substance name, search query and document type filters as input.
+API Pod - Implement API for Products,,"API allows for queries of products which contain an active substance - which should return an alphabetical list and the number of files for each product. Text should match active substance name exactly (e.q. rather than contains).
 
-API produces a list of products, each of which contain documents, as output.
-
-The output of the API should include pagination",API is in a state where it could be used easily by a third party (e.g. NHS developer),,,"""API Pod
+Pagination optional.",API is in a state where it could be used easily by a third party (e.g. NHS developer),,,"""API Pod
 """,,,,Dev,Skateboard 🛹,,Craig Anderson,L,,"Regarding pagination, there's a thing called Relay which seems to be a standard way of doing pagination. We should probably make use of it.",,,,,,6/2/2020,,178
 Sharing Web Analytics dashboard,as an analyst I would like to be able to share insights with whoever need to access them,,access weekly updated web analytics,,,,9,4,TASK,DUXD Review,,,Sandra Coen,,"accessible by all necessary stakeholder
 not accessible by non authorized people",,,,,,,,10/2/2020,191
@@ -176,3 +174,14 @@ First-Party Cookies in Cookie Policy,"As a privacy-minded user, I want to know w
 * Change the second sentence in the cookie banner to something along the lines of “We would like to use cookies to help us improve our services.”
 * Add a section and a separate on/off switch for optional, first-party cookies to the cookie policy page.
 * Edit the Google Analytics section in the cookie policy to make it obvious that they’re third party cookies.",,,,,,,,201
+Single Design Document,"As head of delivery
+I want input into the SDD from the development team
+So that the documentation is complete and accurate",,"Descriptive and accurate documentation, where requested.",,,,,3,TASK,Dev,,,Tim Lee,S,,,,,,,,14/2/2020,,202
+API Pod - Implement API for Documents,,"API allows for queries of documents for a specific product - a list of documents should be returned in the same order as the current website (ordering criteria not known at time of writing). Product name should exactly match the product associated with each document.
+
+API allows for queries of documents using free-form text, producing the same results as the current web site.
+
+Document queries can be filtered by one ore more document type (i.e. PIL, PAR, SPC)
+
+The output of the API should include pagination.",API is in a state where it could be used easily by a third party (e.g. NHS developer),,,"""API Pod
+""",,,TASK,Ready for Dev,Skateboard 🛹,,Craig Anderson,L,,"Regarding pagination, there's a thing called Relay which seems to be a standard way of doing pagination. We should probably make use of it.",,,,,,6/2/2020,,204

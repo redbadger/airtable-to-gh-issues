@@ -7,6 +7,8 @@ dotenv.config();
 export const project_id = 3918491;
 
 const { GH_TOKEN } = process.env;
+export const owner = 'MHRA';
+export const repo = 'products';
 
 export const octokit = new Octokit({
   auth: GH_TOKEN,
@@ -121,9 +123,11 @@ export const setColumn = (story: Story): number => {
   return columnsMatcher[Kanban] ?? 7922933;
 };
 
-export const setCollaborator = (story: Story): string | undefined => {
+export const setCollaborator = (story: Story): string[] | undefined => {
   const { Owner } = story;
-  return collaboratorOwnerMatcher[Owner];
+  return collaboratorOwnerMatcher[Owner]
+    ? [collaboratorOwnerMatcher[Owner]]
+    : undefined;
 };
 
 export const randomColor = () =>
@@ -180,15 +184,20 @@ const setLabels = (story: Story): string => {
   const epics = Epics.length > 0 ? Epics : undefined;
   const type = Type.length > 0 ? Type : undefined;
 
-  return `${epics ?? ''} ${type ?? ''}`;
+  return `${epics?.includes('API') ? 'API POD' : epics ?? ''}, ${type ?? ''}`;
 };
+
+const setGhLabels = (story: Story): string[] | undefined =>
+  setLabels(story)
+    .split(', ')
+    .filter(label => label.length > 1) ?? undefined;
 
 export const issueTemplate = (story: Story): string => {
   return `
 ---
 name: ${story['Story name']}
 about: ${story['Customer Acceptance criteria']}
-labels: ${setLabels(story)}
+labels: ${setGhLabels(story)}
 assignees: ${story.Owner}
 milestone: ${story.Milestone}
 
@@ -224,4 +233,25 @@ ${story.Effort}
 - [ ] Development 
 - [ ] Quality Assurance 
 - [ ] Release and Validate`;
+};
+
+export const createIssue = async (
+  story: Story,
+): Promise<Octokit.IssuesCreateResponse['id']> => {
+  const labels = setGhLabels(story);
+
+  const { data } = await octokit.issues.create({
+    owner,
+    repo,
+    title: story['Story name'],
+    body: issueTemplate(story),
+    labels,
+    assignees: setCollaborator(story),
+    milestone: story['Milestone'].length > 1 ? 1 : undefined,
+  });
+
+  console.log({ issueData: data });
+
+  const { id } = data;
+  return id;
 };
