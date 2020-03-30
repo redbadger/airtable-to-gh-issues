@@ -18,47 +18,12 @@ const parser = csvParse(
 );
 
 export interface Story {
-  'Customer Acceptance criteria': string;
-  'Customer Segment?': string;
-  'Dat Out': string;
-  'Data Acceptance Criteria': string;
-  'Date In': string;
-  'Github PR': string;
-  'Governance Acceptance Criteria': string;
-  'KPI, Metrics and Value': string;
-  'Story name': string;
-  'Tech Acceptance Criteria': string;
-  'Testing Acceptance criteria': string;
-  'Ticket ID': string;
-  'User want': string;
-  Attachments: string;
-  Dependency: string;
-  Description: string;
-  Effort: string;
-  Epics: string;
-  Kanban:
-    | 'Ideas'
-    | 'Backlog'
-    | 'Discovery'
-    | 'Ready for DUXD'
-    | 'DUXD'
-    | 'DUXD Review'
-    | 'Ready for Dev'
-    | 'Dev'
-    | 'Dev Review'
-    | 'Ready for QA'
-    | 'Quality Assurance'
-    | 'Ready for UAT'
-    | 'Ready for Release'
-    | 'Release & Validate'
-    | 'Done this week'
-    | 'Done';
-  Milestone: string;
-  Owner: string;
-  Reporting: string;
-  SIZE: string;
-  Type: string;
-  Value: string;
+  Name: string;
+  'Work Stream': string;
+  'Assigned to': string;
+  Epic: string;
+  Kanban: string;
+  Notes: string;
 }
 
 const getStories = async (): Promise<Story[]> => {

@@ -1,187 +1,119 @@
-﻿Story name,User want,Tech Acceptance Criteria,Customer Acceptance criteria,Data Acceptance Criteria,Testing Acceptance criteria,Epics,Value,Effort,Type,Kanban,Milestone,Customer Segment?,Owner,SIZE,Governance Acceptance Criteria,Description,"KPI, Metrics and Value",Github PR,Attachments,Reporting,Dependency,Date In,Dat Out,Ticket ID
-DATA - data layer - Page Category,"as a user of analytics, I would like to be able to see page categories","- Google Analytics push occurs on pageload
-- Pushed data includes information about current page type",,"how to set up detailed here
-https://docs.google.com/spreadsheets/d/1yS7qlsTs3ksyFFSF5FHcC7-CwOg-Sllr9GSQ68gSApQ/edit#gid=0
+﻿Name,Work Stream,Assigned to,Epic,Kanban,Notes
+Review utilisation and service WIP,Framework,,Misc,Done ,
+Ideation sessions and TD value behaviours,Framework,,Misc,To do ,
+Understanding current approach and thinking ,Framework,,Tom support ,Review ,Team updated and understand current approach
+GDS funding ,Framework,,Tom support ,To do ,
+Future NHS funding,Framework,,Tom support ,To do ,
+Current PMO Stats on delivery,Framework,,Review as is ,Sprint Planning,
+Interview business stakeholders ,Framework,,Review as is ,In Progress,"Prepare for interview 
+Interview
+Collate findings
+Share with team
+Share w Jacques + Chel"
+Create working group,Framework,,Review as is ,Review ,"Get final list from from Jacques + Chel
+Check resourcing is okay with team members 
+(eg. Taz availability w Helen)
+Communicate with working group members
+"
+Interview TD stakeholders,Framework,,Review as is ,Done ,"Interview
+Collate findings
+Share with team
+Share w Jacques + Chel"
+Data at GDS,Framework,,Data Framework,To do ,
+Web analytics governance ,Framework,,Data Framework,To do ,
+Review MHRA Future Portfolio,Framework,,Empower and Embed ,To do ,
+Resource planning ,Framework,,Empower and Embed ,To do ,
+Establish current resourcing,Framework,,Empower and Embed ,To do ,
+Rust training,Framework,,Empower and Embed ,To do ,
+Proposal - Design Sprint as a service ,Framework,,Empower and Embed ,To do ,
+Playback sprint to JQ ,Culture ,,Design Week,Done ,
+Facilitator retro,Culture ,,Design Week,Done ,
+Vision Statement workshop ,Culture ,,Transformation Academy,Done ,
+Agile is not magic - TA Webinar,Framework,Rafa Prada,Transformation Academy,In Progress,
+Support Transition,Products ,,Products/CPD,To do ,
+Kaylie approve service now requests ,Products ,,Products/CPD,Sprint Planning,
+Kick off ,Products ,,Digital Channels ,Sprint Planning,
+Vendor alignment,Framework,,Misc,Sprint Planning,RB + EY - 1st of April
+EY catch up ,Framework,,Review as is ,Done ,
+Plan for approach on framework ,Framework,,Review as is ,In Progress,
+Collect pain points from journey mapping,Framework,,Review as is ,Review ,"Share mural for dot voting
+Print map "
+Alignment meeting with data team ,Framework,,Data Framework,,
+ATC number ,Framework,,Data Framework,,
+Meeting with Jan McDonald ,Framework,,Data Framework,Done ,
+Get a copy of new values and behaviours ,Framework,,Misc,Done ,
+Share maps with RB team ,Framework,,Review as is ,Done ,
+Idea to dev mapping session ,Framework,,Review as is ,Done ,
+Get business interview list ,Framework,,Review as is ,Done ,
+Share Transformation Academy progress,Framework,,Transformation Academy,To do ,Share our approach and progress so far w Jacques and Chel 
+Design sprint training ,Culture ,,Design Week,Done ,
+Facilitation skills support ,Culture ,,Design Week,Done ,
+Design sprint planning ,Culture ,,Design Week,Done ,
+Design thinking bootcamp,Culture ,,Design Week,Done ,
+Townhall demos ,Culture ,,Design Week,Done ,
+Sprint week video ,Culture ,,Design Week,Done ,
+Post sprint activities ,Culture ,,Design Week,Done ,
+Review current courses ,Culture ,,Transformation Academy,Done ,
+Meet team for feedback ,Culture ,,Transformation Academy,Done ,
+Lunch and learn list ,Culture ,,Transformation Academy,Done ,
+Full skateboard ,Products ,,Products/CPD,In Progress,
+Confirmation of infra,Products ,,Products/CPD,In Progress,
+Service design checklist ,Products ,,Products/CPD,In Progress,
+Delivery phases ,Products ,,MDR,In Progress,
+BDG Alignment ,Products ,,MDR,In Progress,
+Commercials ,Products ,,MDR,Review ,
+Customer Feasibility ,Products ,,MDR,Done ,
+Team planning ,Products ,,MDR,Done ,
+BDG alignment ,Products ,,Digital Channels ,In Progress,
+Commercials ,Products ,,Digital Channels ,In Progress,
+Feasibility ,Products ,,NaPSAC,In Progress,
+Prposal ,Products ,,Digital Channels ,Done ,
+Meet GDS Team,Framework,,,In Progress,"Meeting scheduled for 24th Apr
+ACs:
+Create deck 
+Meet GDS team and present our story at MHRA
+Come back share w internal team"
+,,,,,
+External frameworks analysis (GDS & NHSX),Framework,Rafa Prada,Review as is ,To do ,"Identify and understand from both frameworks:
+- Governance
+- Stage gates
+- Funding model
+- Data
 
-Categories are like:
-
-MHRA Homepage	
-Substance Page (with	substance name)
-Product Page	(with product name)
-Search Result Page (with	keyword typed)
-Drug Index Page (with	letter)
-MHRA About Page	
-MHRA Accessibility	
-MHRA Cookies	",that the we can capture the data layer element in Google Analytics,,9,5,STORY,Quality Assurance,,,Robin James Kerrison,XS,,,,,,,,,,165
-API Pod - Azure Development account,"As a developer, I want to connect to K8's pods using a public address",1. API available from a public IP address,,,open this address on the browser http://51.11.35.34/api/healthz and you should see an **OK** on screen,"""API Pod
-""",,,STORY,Ready for Release,Skateboard 🛹,,Pedro Martin,S,,"At the moment (20/01/2020) we cannot connect to MHRA azure cluster because they have a security policy to disallow public connections.
-
-While we are waiting from the business answer,  we are creating a cluster into RB Azure account to keep us moving",,https://github.com/MHRA/products/pull/272,,,,,,7
-API Pod - Create a Kubernetes Pod for the API,,"Kubernetes cluster has an empty pod in it ready to be used for the API server
-Manifest is in repo as a .yml file",,,,"""API Pod
-""",,,TASK,Ready for Release,Skateboard 🛹,,"Pedro Martin,Tim Lee",S,,,,,,,,,,1
-API Pod - Dockerise the API server,,"Dockerfile created for API Rust server
-When running server Docker, endpoints return expected results",,,,"""API Pod
-""",,,TASK,Ready for Release,Skateboard 🛹,,"Pedro Martin,Tim Lee",S,,,,,,,,,,2
-API Pod - Kubernetes Pod deployment of API,,A healthy graphql server running in Kubernetes pod,,,,"""API Pod
-""",,,,Ready for Release,Skateboard 🛹,,"Pedro Martin,Tim Lee",S,,,,,,,,,,4
-API Pod - Rust server for API,,"Rust server created as base for API server
-/live returns 200 OK
-/ready returns 200 OK",,,,"""API Pod
-""",,,STORY,Ready for Release,Skateboard 🛹,,Pedro Martin,M,,,,,,,,,,3
-API Pod - Schema of GraphQL for API,"As a citizen of the UK, I want to programmatically retrieve the same public information I can get from the website so I can handle that information the way I want","website functionality (basic search, drug index) is available via GraphQL endpoint
-end-to-end tests created in line with repo testing principles
-Follows https://github.com/MHRA/products/blob/master/docs/principles/testing.md",,,,"""API Pod
-""",,,STORY,Ready for Release,Skateboard 🛹,,Robin James Kerrison,S,,,,,20200121_142155.jpg (https://dl.airtable.com/.attachments/ef1dfd040d45a0232da451230ab83446/9eb65353/20200121_142155.jpg),,,,,135
-DATA - Web analytics Data Governance,"As the business we need ensure that we manage how web analytics data is managed, accessed and shared",,,"Having a clear visibility on: 
-- how GA is set up at every level
-- how this impact data privacy regulations (ex GDPR)
-- who should have access to data
-- how are those access manage
-- how to store and share data
-- what banner will the user see and accept or refuse on the website",,Data Implementation,10,7,BLOCKED,DUXD,,,Sandra Coen,,,,,,,,,,,134
-POLICIES - Improved privacy settings for Products,As the business I would like to comply with GDPR legislation by allowing users to manage their cookies.,,"In order to comply with ICO requirements, we would need to have all non-essential cookies disable by default and ask/allow the users to enable them
-
-1. The cookies are disable by default when you land on the website
-2. When the user clicks ""accept all cookies"", the cookies became active
-3. The user can go to the cookie policy page at any time and disable cookies and identify all essential cookies detailed as the analytics ones.
-
-Digital and Strategic Content Manager
-Comms - News, Digital & Content
-Communications Division",,,,4,3,STORY,Quality Assurance,Skateboard 🛹,,Craig Anderson,M,,"In order to comply with ICO requirements, we would need to have all non-essential cookies disable by default and ask/allow the users to enable them
-
-1. The cookies are disable by default when you land on the website
-2. When the user clicks ""accept all cookies"", the cookies became active
-3. The user can go to the cookie policy page at any time and disable cookies and identify all essential cookies detailed as the analytics ones.
-
-Cookies banner: https://zpl.io/2pj8o0N
-Policy page: https://zpl.io/aR0nNme
-
-GOV.UK example: https://www.gov.uk/help/cookies
-
-## Update from call with Sarah (11th February)
-
-We need to:
-
-* Change the second sentence in the cookie banner to something along the lines of “We would like to use cookies to help us improve our services.”
-* Add a section and a separate on/off switch for optional, first-party cookies to the cookie policy page.
-* Edit the Google Analytics section in the cookie policy to make it obvious that they’re third party cookies.
-* Update the “Time” column header in the table.
-* Update “Used to throttle request rate"" text to be more easily understandable.
-
-## Update 13th February
-
-Can move forward with this card without the extra features mentioned above. They'll go into a separate card.",,,,,,23/1/2020,,22
-SEARCH - Basic Filters (spc/pil/par),"As a user I want to be able to filter my search results on the search page, so that I can find what I'm looking for quicker and easier",,"1. I'm able to use a filter on the search results page and the category I've chosen gives me results I'm expecting
-2. I am able to easily find and know how to use filters on the search results page",1. Filter events are tracked by category and label and we can cross reference that with what page a user was on when they filtered,"1. Filtering works per the category a user has chosen to apply
-2. Usage of a filter fires in GA under a custom event",Search & Navigation,8,,STORY,Quality Assurance,Skateboard 🛹,ALL,Robin James Kerrison,M,,"We would like users of the website to have a filter option on the Search Results page, so they can filter by perhaps: Brand name, active substance, drug name, PARS etc (as an example)
-
-After User testing we've identified that users are overwhelmed with the number of search results. In order to support the search, the addition of filters will contribute to it.
-
-User testing supporting material: https://drive.google.com/drive/u/0/folders/1XFjqqytNAfH8UpELcn_fTFlVHLmr1u2B 
-
-Initial designs: https://zpl.io/a3D4Dnl",@Sandra Coen ,,,,,,,20
-SEO: structured metadata to site,"I want to be able to easily find a drug via a search engine (Google, Bing, etc.). This may be supported by marking up drugs in our HTML.","Microdata should be included as JSON-LD.
-
-Substances are marked up as a Substance  (http://schema.org/Substance)
-
-Drug search results are marked up as drugs (http://schema.org/Drug).
-
-Lists of these things are marked up as lists (https://schema.org/ItemList).",,,Structured data can be viewed using Google's Structured Data Testing Tool https://search.google.com/structured-data/testing-tool/u/0/,,,,STORY,Ready for UAT,Skateboard 🛹,,"Craig Anderson,Robin James Kerrison",S,,Duplicated by https://airtable.com/tbl7CISHKkr8Kdeh2/viwlDIU6cp8cbQYhj/recNsBPIZfpkExLYD,,,,,,,,5
-SEO: Improve URLs on site,I want to easily understand what a page is based on its URL. This should help with SEO.,"Substance pages should be at `/substance/MY%20COOL%20SUBSTANCE`.
-
-Drug index pages should be at
-`/index/A` `/index/B` for example
-
-Product pages should at `/product/MY%20COOL%20PRODUCT`, `/product/MY%20COOL%20PRODUCT?page=2`, etc..
-
-Search pages should at `/search/MY%20COOL%20PRODUCT`, `/search/MY%20COOL%20PRODUCT?page=2`, etc..
-
-Old URLs should be redirected to these URLs.","Customers can bookmark pages like `/substance/ibuprofen` and then access the same information when navigating to these directly as when navigating them within site links.
-
-Browser back button works when navigating back from `/substance/whatever` etc.","@Sandra Coen please tell Sandra the minute the changes are live so she can make the tracking changes
-",,Data Implementation,,,STORY,Ready for Dev,Skateboard 🛹,,,M,,,,,,,,,,142
-TECH - Set up Istio,,Istio pods should be in the k8s cluster,,,,Tech Infrastructure,,,TASK,Ready for Release,Skateboard 🛹,N/A,Pedro Martin,S,,"For Skateboard the PARs will sit on a temporary WordPress site, until we can look to integrate them as part of the normal journey. Therefore we need to set up the routing system between the two websites.",N/A,,,,,,,27
-TECH - Web pod,"Write the web pod - to host the site, whilst moving to server-side rendering
-Follows https://github.com/MHRA/products/blob/master/docs/principles/testing.md","1. The Web Pod can effectively host HTML, CSS and JS files for client-side rendering",N/A,N/A,,Tech Infrastructure,,,TASK,Ready for Release,Skateboard 🛹,N/A,Robin James Kerrison,S,,"The Web pod would start life just serving static HTML, CSS and JS files for client-side
-rendering. Later it can be evolved for server-side rendering to give users a faster time to
-interactivity and better SEO. It could be written in JavaScript on NodeJS and would be trivial
-to build.",N/A,https://github.com/MHRA/products/pull/276,,,,,,67
-WEB POD - Docker Container,"As a dev
-I want medicines/web to be available as a Docker image
-So that I can deploy it anywhere","Dockerfile created
-Docker image available in MHRA environments' container registry
-Website accessible from outside docker container
-",,,,Tech Infrastructure,,,TASK,Ready for Release,Skateboard 🛹,,Robin James Kerrison,S,,"It's necessary to create a dockerfile which builds an image which allows the medicines/web site to be accessible. This is a precursor to a Kubernetes step.
-See https://github.com/MHRA/products/blob/351032ccd70f8f2b2470bec2c3fc81db5a220fd1/medicines/web/infrastructure/README.md for the open source documentation.",,,,,TECH - Web pod,27/1/2020,,153
-AUTO BATCH PROCESS - PARs upload form,"As a Medical Writer I would like to upload and amend PARs to the Products website, in an easy format so that I can ensure the latest versions of the PARs are always available on the site.",,"1. The upload has an unique identifier for future reference
-2. I have the relevant fields to add data that will match existing PILs and SPCs metadata
-3. Each keyword has its own form field
-4. There is a way to associate the PAR to it's relevant SPC
-5. The url of the PDF is friendly and relatable to the PAR
-6. the title of the file is broken into: (TBC with James)
-- product name
-- Dosage
-- Form (tablet, capsule, etc)
-- PL number",,,"Tech Infrastructure",,,BLOCKED,Discovery,Skateboard 🛹,Internal customers,,XL,,,,,,,,,,158
-API Pod - Pipeline,"As a developer, I want to deploy API code into the cluster when my development branch is merged into the master branch",1. When this is merged into master the new code should be deployed effectively,,,,"""API Pod
-""",,,STORY,Ready for Release,Skateboard 🛹,,Pedro Martin,S,,,,,,,,,,160
-POLICIES - Improved privacy settings for CPD,As the business I would like to comply with GDPR legislation by allowing users to manage their cookies.,,"In order to comply with ICO requirements, we would need to have all non-essential cookies disable by default and ask/allow the users to enable them
-
-1. The cookies are disable by default when you land on the website
-2. When the user clicks ""accept all cookies"", the cookies became active
-3. The user can go to the cookie policy page at any time and disable cookies and identify all essential cookies detailed as the analytics ones.
-
-Digital and Strategic Content Manager
-Comms - News, Digital & Content
-Communications Division",,,,4,3,STORY,Ready for Dev,Skateboard 🛹,,,M,,"In order to comply with ICO requirements, we would need to have all non-essential cookies disable by default and ask/allow the users to enable them
-
-1. The cookies are disable by default when you land on the website
-2. When the user clicks ""accept all cookies"", the cookies became active
-3. The user can go to the cookie policy page at any time and disable cookies and identify all essential cookies detailed as the analytics ones.
-
-Cookies banner: https://zpl.io/2pj8o0N
-Policy page: https://zpl.io/aR0nNme
-
-GOV.UK example: https://www.gov.uk/help/cookies",,,,,,23/1/2020,,162
-DATA - Update site docs to Github,"As a data manager
-I want to see details of how the site uses data
-So that I can ensure that it fulfills the necessary government requirements",,,"1. Readme files / Data match the level of detail required by the business.
-2. Is reflective of the LLD",,Data Implementation,,,TASK,Ready for UAT,Skateboard 🛹,,Tim Lee,S,,,,,,,,,,163
-SEARCH - Fix filtering into substance / drug / files,As a user I want to be able to drill into substances and drugs and see the correct number of files.,The number of results that are displayed after clicking on a drug should match the number displayed next to the result when clicking through the <A-Z> -> <Substance> -> <Drug> (X files),,,,Search & Navigation,,,BUG,Dev,,,Tim Lee,M,,,,,,,,,,173
-API Pod - Implement API for Products,,"API allows for queries of products which contain an active substance - which should return an alphabetical list and the number of files for each product. Text should match active substance name exactly (e.q. rather than contains).
-
-Pagination optional.",API is in a state where it could be used easily by a third party (e.g. NHS developer),,,"""API Pod
-""",,,,Dev,Skateboard 🛹,,Craig Anderson,L,,"Regarding pagination, there's a thing called Relay which seems to be a standard way of doing pagination. We should probably make use of it.",,,,,,6/2/2020,,178
-Sharing Web Analytics dashboard,as an analyst I would like to be able to share insights with whoever need to access them,,access weekly updated web analytics,,,,9,4,TASK,DUXD Review,,,Sandra Coen,,"accessible by all necessary stakeholder
-not accessible by non authorized people",,,,,,,,10/2/2020,191
-AUTO BATCH PROCESS - API for Sentinel ,,"'- API should provide endpoint to post XML or JSON to create an upload request
-- API should dispatch a message to an Azure ServiceBus topic which contains the upload request spec
-- API should provide endpoint to post XML or JSON to create a delete request
-- API should dispatch a message to an Azure ServiceBus topic which contains the delete request spec
-- API should provide endpoint to get status of a request (this can be a stub until we have the logging/status component)
-
-Probable blockers:
-- We need access to the ExpressRoute so Sentinel can communicate with us
-- Dilu integration","Sentinel should be able to upload and delete documents with metadata, and get the status of uploads and deletions",,,Automatic Batch Process,,,TASK,Dev,Skateboard 🛹,,,L,,,,,,,,10/2/2020,,193
-Import Airtable CVS to Github ,"As a x-functional team member, I want to be able to access the Kanban board on Github so that I can track the work the team is completing. ",,,,,,10,5,TASK,Dev Review,Skateboard 🛹,,Pedro Martin,S,,,,,,,,12/2/2020,,198
-API Pipeline secrets 🕵️‍♂️,"As security-minded developer person, I want sensitive environment information to be secured so that I don't have any data breaches.",As a developer I want the API POD to consume environment variables from kubernetes secret,,,,,,,BUG,Dev Review,,,Pedro Martin,,,,,,,,,12/2/2020,,199
-"DATA 
-Insights documentation on Github",as an insight person I would like to document share tracking and reporting data and info on Github,"that GA tracking is available open source
-that reporting is only available on MHRA sharepoint",that the client find instructions clear and accessible,N/A,,,8,7,TASK,DUXD Review,,,,,,,,https://github.com/MHRA/products/blob/timlee/update-documentation/docs/insights.md,,,,13/2/2020,,200
-First-Party Cookies in Cookie Policy,"As a privacy-minded user, I want to know what first-party cookies the Products site uses, and to enable or disable them separately from other cookies.",,,,,,,,,,,,,,,"Need to:
-
-* Change the second sentence in the cookie banner to something along the lines of “We would like to use cookies to help us improve our services.”
-* Add a section and a separate on/off switch for optional, first-party cookies to the cookie policy page.
-* Edit the Google Analytics section in the cookie policy to make it obvious that they’re third party cookies.",,,,,,,,201
-Single Design Document,"As head of delivery
-I want input into the SDD from the development team
-So that the documentation is complete and accurate",,"Descriptive and accurate documentation, where requested.",,,,,3,TASK,Dev,,,Tim Lee,S,,,,,,,,14/2/2020,,202
-API Pod - Implement API for Documents,,"API allows for queries of documents for a specific product - a list of documents should be returned in the same order as the current website (ordering criteria not known at time of writing). Product name should exactly match the product associated with each document.
-
-API allows for queries of documents using free-form text, producing the same results as the current web site.
-
-Document queries can be filtered by one ore more document type (i.e. PIL, PAR, SPC)
-
-The output of the API should include pagination.",API is in a state where it could be used easily by a third party (e.g. NHS developer),,,"""API Pod
-""",,,TASK,Ready for Dev,Skateboard 🛹,,Craig Anderson,L,,"Regarding pagination, there's a thing called Relay which seems to be a standard way of doing pagination. We should probably make use of it.",,,,,,6/2/2020,,204
+GDS: https://www.gov.uk/service-manual
+NHSX: https://service-manual.nhs.uk/service-standard"
+Transformation Academy Alignment,Framework,,Empower and Embed ,,
+Update existing journey with recent feedback,Framework,,,Sprint Planning,
+Stakeholder Mapping,Framework,,Misc,To do ,
+Establish ,Framework,,,,
+Customer value proposition,Framework,,Review as is ,To do ,Apply value proposition model
+Empathy Mapping,Framework,,Review as is ,Sprint Planning,Collate findings from research into empathy map
+Vision Workshop (with working group),Framework,,Misc,To do ,
+Implement cross functional teams,Framework,,Experiments,To do ,"Introduce Product Delivery with cross functional, multi disciplinary teams
+"
+Delivery toolbox,Framework,,Experiments,,"Create a delivery toolbox that defines best practice for different project types and delivery methods 
+"
+Transformation academy,Framework,,Experiments,,"Train TD staff in new roles, use partner agencies to provide mentorship "
+Introduce Service Design,Framework,,Experiments,,"Introduce Service Design to make TD and the Agency less inwardly focussed 
+"
+Redefine stage gating,Framework,,Experiments,,"Re-define stage gating, for more collaborative approach
+"
+Plan the portfolio,Framework,,Experiments,,
+Redesign the solution design board,Framework,,Experiments,,"Redesign the Solution Design Board with clear criteria for design and clear decision makers
+"
+Partly devolve Service transition teams,Framework,,Experiments,,"Partly devolve Service Transition, moving team members to key roles in cross functional teams
+"
+Dissolve service design checklist,Framework,,Experiments,,"Dissolve Service Design Checklist, agree support models up front, add Service Manager
+"
+Amend supplier contracts and maintain governance,Framework,,Experiments,,"Amend supplier contracts and maintain governance of these
+"
+Strategy workshop (with working group),Framework,,Misc,To do ,Alignment and strategy blueprint 
+Collate findings from research,Framework,,,To do ,Collate interview findings and share w team
+Data at NHS-X,Framework,,Data Framework,To do ,
+TA open source- Noosphere,Framework,,Transformation Academy,In Progress,"a presentation tool/ slides archive  for TA academy
+At the moment is in Red Badger repo, once TD is happy with this approach I will move it to MHRA GitHub org"
+Understand MHRA approach to apprentices,Framework,,,To do ,"What is the plan for training apprentices
+Are there any objectives/long term goals
+What is the expectation from Red Badger"
+Lunch & Learn on Instructional Design,Framework,,Transformation Academy,To do ,
+Git Hub Lunch & Learn,Framework,,,To do ,
