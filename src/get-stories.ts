@@ -22,7 +22,14 @@ export interface Story {
   'Work Stream': string;
   'Assigned to': string;
   Epic: string;
-  Kanban: string;
+  Kanban:
+    | 'Uncategorized'
+    | 'To do '
+    | 'Sprint Planning'
+    | 'In Progress'
+    | 'Review '
+    | 'Done '
+    | string;
   Notes: string;
 }
 
